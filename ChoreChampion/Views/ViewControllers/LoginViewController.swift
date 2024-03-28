@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import FirebaseAuth
 
 class LoginViewController: UIViewController {
     
@@ -15,29 +14,31 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var emailErrLabel: UILabel!
     @IBOutlet weak var passErrLabel: UILabel!
-    var spinner: UIActivityIndicatorView?
-
+    
+    var authDelegate: AuthenticationDelegate?
+    
     @IBOutlet weak var loginBtn: UIButton!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        authDelegate = AuthManager()
     }
-
+    
     @IBAction func onEmailChanged(_ sender: UITextField) {
         
-            guard let newText = sender.text, !newText.isEmpty else {
-                toggleError(
-                    value: true,
-                    for: emailErrLabel
-                )
-                return
-            }
-            
+        guard let newText = sender.text, !newText.isEmpty else {
             toggleError(
-                value: false,
+                value: true,
                 for: emailErrLabel
             )
+            return
+        }
+        
+        toggleError(
+            value: false,
+            for: emailErrLabel
+        )
     }
     
     
@@ -72,51 +73,52 @@ class LoginViewController: UIViewController {
     
     @IBAction func onLoginBtnPressed(_ sender: UIButton) {
         sender.isEnabled = false
-        spinner = UIActivityIndicatorView(style: .medium)
-        spinner?.color = .systemTeal
-        spinner?.startAnimating()
-        sender.addSubview(spinner!)
-        spinner?.center = CGPoint(x: sender.bounds.width / 2, y: sender.bounds.height / 2)
-        spinner?.startAnimating()
+        showSpinner(for: sender)
         
-            sender.setTitle("", for: .normal)
-            if let enteredEmail = emailTxtField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
-               let enteredPassword = passTxtField.text?.trimmingCharacters(in: .whitespacesAndNewlines) {
-                    
-                    Auth.auth().signIn(withEmail: enteredEmail, password: enteredPassword) { [weak self] authResult, error in
-                        // Re-enable the button
-                        sender.isEnabled = true
-                        
-                        sender.setTitleColor(.white, for: .disabled)
-                        
-                        
-                        // Hide spinner
-                        self?.spinner?.stopAnimating()
-                        self?.spinner?.removeFromSuperview()
-                        self?.spinner = nil
-                        
-                        if let error = error {
-                            self?.showAlert(title: "Login Failed", message: error.localizedDescription)
-                            sender.setTitle("Login", for: .normal)
-                        } else {
-                            let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                            let mainViewController = mainStoryboard.instantiateViewController(withIdentifier: "MainViewController")
-                            if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate {
-                                sceneDelegate.window?.rootViewController = mainViewController
-                            }
-                            sender.setTitle("Login", for: .normal)
-                        }
-                    
-                }}
-        
+        if let enteredEmail = emailTxtField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
+           let enteredPassword = passTxtField.text?.trimmingCharacters(in: .whitespacesAndNewlines) {
+            authDelegate?.signIn(with: Credentials(email: enteredEmail, password: enteredPassword)) { [weak self] error in
+                sender.isEnabled = true
+                self?.hideSpinner(for: sender)
+                
+                if let error = error {
+                    self?.showAlert(title: "Login Failed", message: error.localizedDescription)
+                } else {
+                    self?.navigateToMainViewController()
+                }
+            }
+        }
     }
     
-
-    
-    struct Credentials: Hashable {
-        let email: String
-        let password: String
+    func showSpinner(for button: UIButton) {
+        let spinner = UIActivityIndicatorView(style: .medium)
+        spinner.color = .systemTeal
+        spinner.startAnimating()
+        button.addSubview(spinner)
+        spinner.center = CGPoint(x: button.bounds.width / 2, y: button.bounds.height / 2)
+        button.setTitle("", for: .normal)
     }
+    
+    func hideSpinner(for button: UIButton) {
+        button.subviews.compactMap { $0 as? UIActivityIndicatorView }.forEach {
+            $0.stopAnimating()
+            $0.removeFromSuperview()
+        }
+        button.setTitle("Login", for: .normal)
+    }
+    
+    
+    func navigateToMainViewController() {
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let mainViewController = mainStoryboard.instantiateViewController(withIdentifier: "MainViewController")
+        
+        guard let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate else {
+            return
+        }
+        
+        sceneDelegate.window?.rootViewController = mainViewController
+    }
+    
     
     
     func showAlert(

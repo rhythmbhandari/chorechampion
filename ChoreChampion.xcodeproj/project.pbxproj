@@ -47,6 +47,8 @@
 		A455D9132BB559D600903E11 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = A455D9122BB559D600903E11 /* FirebaseStorageCombine-Community */; };
 		A455D9182BB55DC900903E11 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A455D9172BB55DC900903E11 /* Main.storyboard */; };
 		A455D9202BB55E7F00903E11 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A455D91F2BB55E7F00903E11 /* MainViewController.swift */; };
+		A4672CE02BB629E20040B503 /* AuthProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4672CDF2BB629E20040B503 /* AuthProtocol.swift */; };
+		A4672CE22BB62A640040B503 /* CredentialsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4672CE12BB62A640040B503 /* CredentialsModel.swift */; };
 		A495C8C72BB3A1800053875E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A495C8C62BB3A1800053875E /* AppDelegate.swift */; };
 		A495C8C92BB3A1800053875E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A495C8C82BB3A1800053875E /* SceneDelegate.swift */; };
 		A495C8CB2BB3A1800053875E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A495C8CA2BB3A1800053875E /* LoginViewController.swift */; };
@@ -59,6 +61,8 @@
 		A455D8C72BB5532100903E11 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A455D9172BB55DC900903E11 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		A455D91F2BB55E7F00903E11 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		A4672CDF2BB629E20040B503 /* AuthProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthProtocol.swift; sourceTree = "<group>"; };
+		A4672CE12BB62A640040B503 /* CredentialsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialsModel.swift; sourceTree = "<group>"; };
 		A495C8C32BB3A1800053875E /* ChoreChampion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChoreChampion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A495C8C62BB3A1800053875E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A495C8C82BB3A1800053875E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -144,6 +148,22 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		A4672CDD2BB629AF0040B503 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A4672CE12BB62A640040B503 /* CredentialsModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A4672CDE2BB629C10040B503 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				A4672CDF2BB629E20040B503 /* AuthProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		A495C8BA2BB3A1800053875E = {
 			isa = PBXGroup;
 			children = (
@@ -163,6 +183,8 @@
 		A495C8C52BB3A1800053875E /* ChoreChampion */ = {
 			isa = PBXGroup;
 			children = (
+				A4672CDE2BB629C10040B503 /* Protocols */,
+				A4672CDD2BB629AF0040B503 /* Models */,
 				A455D9212BB561D200903E11 /* Views */,
 				A495C8C62BB3A1800053875E /* AppDelegate.swift */,
 				A495C8C82BB3A1800053875E /* SceneDelegate.swift */,
@@ -289,7 +311,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4672CE22BB62A640040B503 /* CredentialsModel.swift in Sources */,
 				A495C8CB2BB3A1800053875E /* LoginViewController.swift in Sources */,
+				A4672CE02BB629E20040B503 /* AuthProtocol.swift in Sources */,
 				A495C8C72BB3A1800053875E /* AppDelegate.swift in Sources */,
 				A495C8C92BB3A1800053875E /* SceneDelegate.swift in Sources */,
 				A455D9202BB55E7F00903E11 /* MainViewController.swift in Sources */,
