@@ -70,7 +70,7 @@
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Oov-QJ-LRZ">
                                                 <rect key="frame" x="16" y="161" width="361" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                                 <connections>
                                                     <action selector="onPassChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="VjL-1g-nB0"/>
                                                 </connections>
@@ -84,7 +84,7 @@
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sOb-s3-TzI">
                                                 <rect key="frame" x="16" y="48.666666666666686" width="361" height="34"/>
                                                 <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="16"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                                                 <connections>
                                                     <action selector="onEmailChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="k9y-fx-Rmf"/>
                                                 </connections>
@@ -116,7 +116,11 @@
                                         <rect key="frame" x="0.0" y="512.66666666666663" width="393" height="246.33333333333337"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bEm-1L-CPi">
-                                                <rect key="frame" x="16" y="106" width="361" height="34.333333333333343"/>
+                                                <rect key="frame" x="16" y="103.33333333333337" width="361" height="40"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="6IX-Kg-Nah"/>
+                                                </constraints>
                                                 <color key="tintColor" red="0.21960784310000001" green="0.69019607839999997" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="Login"/>

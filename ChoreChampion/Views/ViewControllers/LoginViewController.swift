@@ -15,7 +15,8 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var emailErrLabel: UILabel!
     @IBOutlet weak var passErrLabel: UILabel!
-        
+    var spinner: UIActivityIndicatorView?
+
     @IBOutlet weak var loginBtn: UIButton!
     
     
@@ -70,23 +71,47 @@ class LoginViewController: UIViewController {
     
     
     @IBAction func onLoginBtnPressed(_ sender: UIButton) {
+        sender.isEnabled = false
+        spinner = UIActivityIndicatorView(style: .medium)
+        spinner?.color = .systemTeal
+        spinner?.startAnimating()
+        sender.addSubview(spinner!)
+        spinner?.center = CGPoint(x: sender.bounds.width / 2, y: sender.bounds.height / 2)
+        spinner?.startAnimating()
         
-            if let enteredEmail = emailTxtField.text?.trimmingCharacters(
-                in: .whitespacesAndNewlines
-            ),
-               let enteredPassword = passTxtField.text?.trimmingCharacters(
-                in: .whitespacesAndNewlines
-               ) {
-                Auth.auth().signIn(withEmail: enteredEmail, password: enteredPassword) { [weak self] authResult, error in
+            sender.setTitle("", for: .normal)
+            if let enteredEmail = emailTxtField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
+               let enteredPassword = passTxtField.text?.trimmingCharacters(in: .whitespacesAndNewlines) {
+                    
+                    Auth.auth().signIn(withEmail: enteredEmail, password: enteredPassword) { [weak self] authResult, error in
+                        // Re-enable the button
+                        sender.isEnabled = true
+                        
+                        sender.setTitleColor(.white, for: .disabled)
+                        
+                        
+                        // Hide spinner
+                        self?.spinner?.stopAnimating()
+                        self?.spinner?.removeFromSuperview()
+                        self?.spinner = nil
+                        
                         if let error = error {
                             self?.showAlert(title: "Login Failed", message: error.localizedDescription)
+                            sender.setTitle("Login", for: .normal)
                         } else {
-                            self?.showAlert(title: "Login Success", message: "Welcome back!")
+                            let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                            let mainViewController = mainStoryboard.instantiateViewController(withIdentifier: "MainViewController")
+                            if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate {
+                                sceneDelegate.window?.rootViewController = mainViewController
+                            }
+                            sender.setTitle("Login", for: .normal)
                         }
-                    }
-                checkLoginButtonStatus()
-            }
+                    
+                }}
+        
     }
+    
+
     
     struct Credentials: Hashable {
         let email: String
