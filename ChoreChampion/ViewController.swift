@@ -77,39 +77,13 @@ class ViewController: UIViewController {
                let enteredPassword = passTxtField.text?.trimmingCharacters(
                 in: .whitespacesAndNewlines
                ) {
-                
-//                let validCredentials: Set<Credentials> = [
-//                    Credentials(
-//                        email: "test1@here.com",
-//                        password: "password1"
-//                    ),
-//                    Credentials(
-//                        email: "test2@there.com",
-//                        password: "password2"
-//                    )
-//                ]
-//                
-//                if validCredentials.contains(
-//                    Credentials(
-//                        email: enteredEmail,
-//                        password: enteredPassword
-//                    )
-//                ) {
-//                    showAlert(
-//                        title: "Authentication Success",
-//                        message: "Welcome back, John Doe"
-//                    )
-//                } else {
-//                    showAlert(
-//                        title: "Authentication Failed",
-//                        message: "Invalid credentials"
-//                    )
-//                    passTxtField.text = ""
-//                }
-                
                 Auth.auth().signIn(withEmail: enteredEmail, password: enteredPassword) { [weak self] authResult, error in
-                        guard let strongSelf = self else { return }
-                      }
+                        if let error = error {
+                            self?.showAlert(title: "Login Failed", message: error.localizedDescription)
+                        } else {
+                            self?.showAlert(title: "Login Success", message: "Welcome back!")
+                        }
+                    }
                 checkLoginButtonStatus()
             }
     }
