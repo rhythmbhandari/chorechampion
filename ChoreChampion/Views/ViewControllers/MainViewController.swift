@@ -9,8 +9,7 @@ import UIKit
 
 class MainViewController:UIViewController {
     var authManager: AuthManager?
-    
-    var chores: [Chore] = []
+    var choresManager: ChoresManaging?
     
     @IBOutlet weak var choreTable: UITableView!
     
@@ -18,17 +17,11 @@ class MainViewController:UIViewController {
         super.viewDidLoad()
         let authService = FirebaseAuthenticationService()
         authManager = AuthManager(authService: authService)
-        loadDefaultChores()
+        choresManager = InMemoryChoresManager()
         choreTable.dataSource = self
+        choreTable.reloadData()
     }
     
-    private func loadDefaultChores() {
-        chores.append(Chore(title: "First Chore", description: "First Description", status: ChoreStatus.completed, annotation: "First Annotation"))
-        
-        chores.append(Chore(title: "Second Chore", description: "Second Description", status: ChoreStatus.inProgress, annotation: "Second Annotation"))
-        
-        chores.append(Chore(title: "Third Chore", description: "Third Description", status:  ChoreStatus.notStarted, annotation: "Third Annotation"))
-    }
     
     @IBAction func onLogoutPressed(_ sender: UIButton) {
         authManager?.signOut { result in

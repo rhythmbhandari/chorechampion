@@ -1,5 +1,5 @@
 //
-//  AuthProtocol.swift
+//  AuthDelegate.swift
 //  ChoreChampion
 //
 //  Created by Rhythm Bhandari on 3/28/24.
