@@ -11,14 +11,14 @@ import UIKit
 struct Chore {
     let title: String
     let description: String
-    let status: TaskStatus
+    let status: ChoreStatus
     let annotation: String
 }
 
-enum TaskStatus: String, CaseIterable {
-    case notStarted = "Not Started"
-    case inProgress = "In Progress"
-    case completed = "Completed"
+enum ChoreStatus: Int, CaseIterable {
+    case notStarted = 0
+    case inProgress = 1
+    case completed = 2
     
     var color: UIColor {
             switch self {

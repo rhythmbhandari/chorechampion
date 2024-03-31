@@ -11,7 +11,7 @@
         <!--Add Chore View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="AddChoreView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="AddChoreViewController" customModule="ChoreChampion" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddChoreViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="AddChoreViewController" customModule="ChoreChampion" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -20,13 +20,19 @@
                                 <rect key="frame" x="16" y="164" width="361" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="onTitleChanged:" destination="Y6W-OH-hqX" eventType="editingChanged" id="lt6-Rz-DQn"/>
+                                </connections>
                             </textField>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pPp-VY-Ji8">
                                 <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                                 <items>
                                     <navigationItem title="Add New Chore" id="zet-Y5-Vd7">
                                         <barButtonItem key="leftBarButtonItem" title="Item" image="arrowshape.left.circle.fill" catalog="system" id="61Y-DY-HKs">
-                                            <color key="tintColor" red="0.64705882349999999" green="0.86274509799999999" blue="0.4941176471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="tintColor" red="0.21960784310000001" green="0.69019607839999997" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <connections>
+                                                <action selector="onBackButtonPressed:" destination="Y6W-OH-hqX" id="BkE-qD-Tzi"/>
+                                            </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
@@ -47,14 +53,18 @@
                                 <rect key="frame" x="16" y="269" width="361" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="onDescriptionChanged:" destination="Y6W-OH-hqX" eventType="editingChanged" id="B4U-Un-Bru"/>
+                                </connections>
                             </textField>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="6Zh-hV-iJB">
-                                <rect key="frame" x="16" y="448" width="361" height="32"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="1" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Zh-hV-iJB">
+                                <rect key="frame" x="16" y="455" width="361" height="32"/>
                                 <segments>
                                     <segment title="Not Started"/>
                                     <segment title="In Progress"/>
                                     <segment title="Completed"/>
                                 </segments>
+                                <color key="selectedSegmentTintColor" red="0.21960784310000001" green="0.69019607839999997" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Annotation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U6C-fB-MlJ">
                                 <rect key="frame" x="16" y="343" width="101" height="23"/>
@@ -66,13 +76,37 @@
                                 <rect key="frame" x="16" y="374" width="361" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="onAnnotationChanged:" destination="Y6W-OH-hqX" eventType="editingChanged" id="Km8-KA-Vm2"/>
+                                </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1WM-ac-tHr">
-                                <rect key="frame" x="16" y="529" width="361" height="35"/>
-                                <color key="tintColor" red="0.64705882349999999" green="0.86274509799999999" blue="0.4941176471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1WM-ac-tHr">
+                                <rect key="frame" x="16" y="531" width="361" height="35"/>
+                                <color key="tintColor" red="0.21960784310000001" green="0.69019607839999997" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Add"/>
+                                <connections>
+                                    <action selector="onAddChoreBtnPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="qPe-NY-x7n"/>
+                                </connections>
                             </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter chore title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Id-bg-kez">
+                                <rect key="frame" x="16" y="206" width="109" height="14"/>
+                                <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="12"/>
+                                <color key="textColor" systemColor="systemRedColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter chore description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AnQ-4J-4Ed">
+                                <rect key="frame" x="16" y="311" width="144" height="14"/>
+                                <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="12"/>
+                                <color key="textColor" systemColor="systemRedColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter chore annotation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ihy-9B-7aY">
+                                <rect key="frame" x="16" y="416" width="142" height="14"/>
+                                <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="12"/>
+                                <color key="textColor" systemColor="systemRedColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -84,30 +118,40 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="oBv-T0-ihL" secondAttribute="trailing" constant="16" id="Foq-mE-ya5"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="1WM-ac-tHr" secondAttribute="trailing" constant="16" id="GJM-Iz-BjM"/>
                             <constraint firstItem="lHK-ak-J7c" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="HFk-jd-8iJ"/>
+                            <constraint firstItem="1WM-ac-tHr" firstAttribute="top" secondItem="6Zh-hV-iJB" secondAttribute="bottom" constant="45" id="Jal-c8-Tge"/>
                             <constraint firstItem="0Kb-Iu-Of2" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="K71-Ea-urp"/>
-                            <constraint firstItem="6Zh-hV-iJB" firstAttribute="top" secondItem="0Kb-Iu-Of2" secondAttribute="bottom" constant="40" id="KQ8-mi-foJ"/>
                             <constraint firstItem="oBv-T0-ihL" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="MPP-Os-0vt"/>
                             <constraint firstItem="oBv-T0-ihL" firstAttribute="top" secondItem="OZu-HH-Q5q" secondAttribute="bottom" constant="8" symbolic="YES" id="N0r-hV-sHd"/>
                             <constraint firstItem="pPp-VY-Ji8" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="NXd-Mv-iFS"/>
                             <constraint firstItem="lHK-ak-J7c" firstAttribute="top" secondItem="EES-lG-PAo" secondAttribute="bottom" constant="8" symbolic="YES" id="O2i-JF-GOk"/>
-                            <constraint firstItem="EES-lG-PAo" firstAttribute="top" secondItem="oBv-T0-ihL" secondAttribute="bottom" constant="40" id="RRv-N0-nDo"/>
+                            <constraint firstItem="EES-lG-PAo" firstAttribute="top" secondItem="3Id-bg-kez" secondAttribute="bottom" constant="18" id="OSr-OF-cYc"/>
+                            <constraint firstItem="U6C-fB-MlJ" firstAttribute="top" secondItem="AnQ-4J-4Ed" secondAttribute="bottom" constant="18" id="RUN-gO-Wte"/>
                             <constraint firstItem="OZu-HH-Q5q" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="SQA-Eb-n1S"/>
+                            <constraint firstItem="ihy-9B-7aY" firstAttribute="top" secondItem="0Kb-Iu-Of2" secondAttribute="bottom" constant="8" symbolic="YES" id="SSZ-WS-Qqa"/>
+                            <constraint firstItem="U6C-fB-MlJ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="Td9-q6-7xh"/>
                             <constraint firstItem="pPp-VY-Ji8" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="UAw-If-MPv"/>
+                            <constraint firstItem="6Zh-hV-iJB" firstAttribute="top" secondItem="ihy-9B-7aY" secondAttribute="bottom" constant="25" id="WH9-re-ODn"/>
+                            <constraint firstItem="AnQ-4J-4Ed" firstAttribute="top" secondItem="lHK-ak-J7c" secondAttribute="bottom" constant="8" symbolic="YES" id="X78-J1-bew"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="lHK-ak-J7c" secondAttribute="trailing" constant="16" id="XyA-vz-TmE"/>
                             <constraint firstItem="U6C-fB-MlJ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="YJ5-ZB-1lL"/>
                             <constraint firstItem="1WM-ac-tHr" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="YkH-T6-A7C"/>
                             <constraint firstItem="pPp-VY-Ji8" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="bof-Te-Jkw"/>
+                            <constraint firstItem="3Id-bg-kez" firstAttribute="top" secondItem="oBv-T0-ihL" secondAttribute="bottom" constant="8" symbolic="YES" id="eGY-3H-tNF"/>
+                            <constraint firstItem="ihy-9B-7aY" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="gKN-ed-NoR"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="0Kb-Iu-Of2" secondAttribute="trailing" constant="16" id="nLL-sh-ckn"/>
-                            <constraint firstItem="1WM-ac-tHr" firstAttribute="top" secondItem="6Zh-hV-iJB" secondAttribute="bottom" constant="50" id="qDD-fe-Wgy"/>
-                            <constraint firstItem="U6C-fB-MlJ" firstAttribute="top" secondItem="lHK-ak-J7c" secondAttribute="bottom" constant="40" id="u86-eH-f2M"/>
+                            <constraint firstItem="AnQ-4J-4Ed" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="rMl-XZ-q9B"/>
+                            <constraint firstItem="3Id-bg-kez" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="sFQ-IV-2PA"/>
                             <constraint firstItem="6Zh-hV-iJB" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="ws3-NV-oF4"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="addChoreBtn" destination="1WM-ac-tHr" id="6f3-zd-UvI"/>
+                        <outlet property="annoErrLabel" destination="ihy-9B-7aY" id="bDO-ct-33Z"/>
                         <outlet property="annoTxtField" destination="0Kb-Iu-Of2" id="bzr-5z-18u"/>
                         <outlet property="choreStatusSegControl" destination="6Zh-hV-iJB" id="4bT-lQ-uLX"/>
+                        <outlet property="descErrLabel" destination="AnQ-4J-4Ed" id="BNw-Wk-jKD"/>
                         <outlet property="descTxtField" destination="lHK-ak-J7c" id="j4V-Fk-NlP"/>
+                        <outlet property="titleErrLabel" destination="3Id-bg-kez" id="gdv-0u-AlI"/>
                         <outlet property="titleTxtField" destination="oBv-T0-ihL" id="WDe-GA-y4l"/>
                     </connections>
                 </viewController>
@@ -120,6 +164,9 @@
         <image name="arrowshape.left.circle.fill" catalog="system" width="128" height="123"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
