@@ -16,24 +16,49 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9ez-su-GB2">
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e5U-oT-akw">
                                 <rect key="frame" x="0.0" y="59" width="393" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
-                                    <navigationItem title="Title" id="mPK-It-r85"/>
+                                    <navigationItem title="Chore Champion" id="ZYP-6W-2MY">
+                                        <barButtonItem key="rightBarButtonItem" title="Logout" id="j9m-tj-USj"/>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hJ7-pu-dg1">
+                                <rect key="frame" x="0.0" y="115" width="393" height="44"/>
+                                <items>
+                                    <barButtonItem title="Item" image="plus.app.fill" catalog="system" id="DsL-NB-RJW"/>
+                                </items>
+                            </toolbar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="W8X-qE-kli">
+                                <rect key="frame" x="0.0" y="159" width="393" height="659"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="e5U-oT-akw" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="9qV-Cd-bD2"/>
+                            <constraint firstItem="e5U-oT-akw" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="BuW-bt-rp2"/>
+                            <constraint firstItem="W8X-qE-kli" firstAttribute="top" secondItem="hJ7-pu-dg1" secondAttribute="bottom" id="Cv7-cs-mSC"/>
+                            <constraint firstItem="hJ7-pu-dg1" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="DRe-Co-Qdj"/>
+                            <constraint firstItem="e5U-oT-akw" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="SPr-rz-FGZ"/>
+                            <constraint firstItem="e5U-oT-akw" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="esb-AJ-Pvq"/>
+                            <constraint firstItem="W8X-qE-kli" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="irM-Gh-FYE"/>
+                            <constraint firstAttribute="trailing" secondItem="W8X-qE-kli" secondAttribute="trailing" id="ke0-TA-yhw"/>
+                            <constraint firstItem="hJ7-pu-dg1" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="oXW-cm-9g7"/>
+                            <constraint firstItem="hJ7-pu-dg1" firstAttribute="top" secondItem="e5U-oT-akw" secondAttribute="bottom" constant="12" id="q6z-7T-afv"/>
+                            <constraint firstItem="W8X-qE-kli" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="syS-Dt-oXs"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="76" y="-2"/>
+            <point key="canvasLocation" x="75.572519083969468" y="-2.1126760563380285"/>
         </scene>
     </scenes>
     <resources>
+        <image name="plus.app.fill" catalog="system" width="128" height="114"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
