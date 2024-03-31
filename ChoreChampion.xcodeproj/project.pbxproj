@@ -9,7 +9,9 @@
 /* Begin PBXBuildFile section */
 		A41178152BB90A020046170C /* FirebaseAuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41178142BB90A020046170C /* FirebaseAuthenticationService.swift */; };
 		A411781A2BB90A390046170C /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41178192BB90A390046170C /* AuthManager.swift */; };
-		A411781D2BB90D4F0046170C /* UIViewContollerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A411781C2BB90D4F0046170C /* UIViewContollerExtension.swift */; };
+		A411781F2BB90F630046170C /* ChoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A411781E2BB90F630046170C /* ChoreModel.swift */; };
+		A41178252BB9137D0046170C /* UIViewContollerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41178242BB9137D0046170C /* UIViewContollerExtension.swift */; };
+		A41178272BB913F60046170C /* MainControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41178262BB913F60046170C /* MainControllerExtension.swift */; };
 		A455D8C82BB5532100903E11 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A455D8C72BB5532100903E11 /* GoogleService-Info.plist */; };
 		A455D8CB2BB553B100903E11 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = A455D8CA2BB553B100903E11 /* FirebaseAnalytics */; };
 		A455D8CD2BB553B100903E11 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = A455D8CC2BB553B100903E11 /* FirebaseAnalyticsOnDeviceConversion */; };
@@ -63,7 +65,9 @@
 /* Begin PBXFileReference section */
 		A41178142BB90A020046170C /* FirebaseAuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthenticationService.swift; sourceTree = "<group>"; };
 		A41178192BB90A390046170C /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
-		A411781C2BB90D4F0046170C /* UIViewContollerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewContollerExtension.swift; sourceTree = "<group>"; };
+		A411781E2BB90F630046170C /* ChoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoreModel.swift; sourceTree = "<group>"; };
+		A41178242BB9137D0046170C /* UIViewContollerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewContollerExtension.swift; sourceTree = "<group>"; };
+		A41178262BB913F60046170C /* MainControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainControllerExtension.swift; sourceTree = "<group>"; };
 		A455D8C72BB5532100903E11 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A455D9172BB55DC900903E11 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		A455D91F2BB55E7F00903E11 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -146,7 +150,8 @@
 		A411781B2BB90D390046170C /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				A411781C2BB90D4F0046170C /* UIViewContollerExtension.swift */,
+				A41178242BB9137D0046170C /* UIViewContollerExtension.swift */,
+				A41178262BB913F60046170C /* MainControllerExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -182,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				A4672CE12BB62A640040B503 /* CredentialsModel.swift */,
+				A411781E2BB90F630046170C /* ChoreModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -344,8 +350,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A41178252BB9137D0046170C /* UIViewContollerExtension.swift in Sources */,
+				A41178272BB913F60046170C /* MainControllerExtension.swift in Sources */,
 				A41178152BB90A020046170C /* FirebaseAuthenticationService.swift in Sources */,
-				A411781D2BB90D4F0046170C /* UIViewContollerExtension.swift in Sources */,
 				A4672CE22BB62A640040B503 /* CredentialsModel.swift in Sources */,
 				A495C8CB2BB3A1800053875E /* LoginViewController.swift in Sources */,
 				A4672CE02BB629E20040B503 /* AuthProtocol.swift in Sources */,
@@ -353,6 +360,7 @@
 				A495C8C92BB3A1800053875E /* SceneDelegate.swift in Sources */,
 				A455D9202BB55E7F00903E11 /* MainViewController.swift in Sources */,
 				A411781A2BB90A390046170C /* AuthManager.swift in Sources */,
+				A411781F2BB90F630046170C /* ChoreModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
