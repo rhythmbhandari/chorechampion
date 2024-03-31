@@ -43,53 +43,16 @@ class MainViewController:UIViewController {
     }
     
     @IBAction func onAddButtonPressed(_ sender: Any) {
-        let alert = UIAlertController(title: "Add Chore", message: "Enter your chore, description, and status", preferredStyle: .alert)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil) // Assuming your storyboard name is "Main"
+            if let addChoreVC = storyboard.instantiateViewController(withIdentifier: "AddChoreViewController") as? AddChoreViewController {
+                addChoreVC.modalPresentationStyle = .overCurrentContext // Adjust presentation style as needed
                 
-        alert.addTextField { textField in
-                textField.placeholder = "Enter chore"
-            }
-            alert.addTextField { textField in
-                textField.placeholder = "Enter description of chore"
-            }
-            
-            let containerView = UIView()
-           
-           let pickerView = UIPickerView()
-           pickerView.dataSource = self
-           pickerView.delegate = self
-           containerView.addSubview(pickerView)
-           
-           alert.view.addSubview(containerView)
-           
-           containerView.translatesAutoresizingMaskIntoConstraints = false
-        
-        
-        NSLayoutConstraint.activate([
-               containerView.topAnchor.constraint(equalTo: alert.view.topAnchor, constant: 60),
-               containerView.leadingAnchor.constraint(equalTo: alert.view.leadingAnchor, constant: 8),
-               containerView.trailingAnchor.constraint(equalTo: alert.view.trailingAnchor, constant: -8),
-               pickerView.topAnchor.constraint(equalTo: alert.textFields!.last!.bottomAnchor, constant: 8),
-               pickerView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
-               pickerView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
-               pickerView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -8)
-           ])
+                // You can pass any necessary data to the AddChoreViewController here if needed
                 
-                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-                alert.addAction(UIAlertAction(title: "Add", style: .default, handler: { action in
-                    if let titleTxtField = alert.textFields?[0], let descTxtField = alert.textFields?[1] {
-                        let title = titleTxtField.text ?? ""
-                        let desc = descTxtField.text ?? ""
-                        
-                        let selectedStatusRow = pickerView.selectedRow(inComponent: 0)
-                        let selectedStatus = TaskStatus.allCases[selectedStatusRow]
-                        
-                        let chore = Chore(title: title, description: desc, status: selectedStatus, annotation: "String")
-                        
-                    }
-                }))
-                
-                present(alert, animated: true)
+                present(addChoreVC, animated: true, completion: nil)
             }
+    }
+    
 }
 
 extension MainViewController: UIPickerViewDataSource, UIPickerViewDelegate {

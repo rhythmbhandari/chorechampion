@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Add Chore View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="AddChoreView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="AddChoreViewController" customModule="ChoreChampion" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter chore title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oBv-T0-ihL">
+                                <rect key="frame" x="16" y="164" width="361" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pPp-VY-Ji8">
+                                <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                                <items>
+                                    <navigationItem title="Add New Chore" id="zet-Y5-Vd7">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" image="arrowshape.left.circle.fill" catalog="system" id="61Y-DY-HKs">
+                                            <color key="tintColor" red="0.64705882349999999" green="0.86274509799999999" blue="0.4941176471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OZu-HH-Q5q">
+                                <rect key="frame" x="15.999999999999996" y="133" width="40.666666666666657" height="23"/>
+                                <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EES-lG-PAo">
+                                <rect key="frame" x="16" y="238" width="104" height="23"/>
+                                <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter chore description" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lHK-ak-J7c">
+                                <rect key="frame" x="16" y="269" width="361" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="6Zh-hV-iJB">
+                                <rect key="frame" x="16" y="448" width="361" height="32"/>
+                                <segments>
+                                    <segment title="Not Started"/>
+                                    <segment title="In Progress"/>
+                                    <segment title="Completed"/>
+                                </segments>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Annotation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U6C-fB-MlJ">
+                                <rect key="frame" x="16" y="343" width="101" height="23"/>
+                                <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please enter additional information" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Kb-Iu-Of2">
+                                <rect key="frame" x="16" y="374" width="361" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1WM-ac-tHr">
+                                <rect key="frame" x="16" y="529" width="361" height="35"/>
+                                <color key="tintColor" red="0.64705882349999999" green="0.86274509799999999" blue="0.4941176471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Add"/>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="OZu-HH-Q5q" firstAttribute="top" secondItem="pPp-VY-Ji8" secondAttribute="bottom" constant="30" id="29Q-VF-ZVQ"/>
+                            <constraint firstItem="0Kb-Iu-Of2" firstAttribute="top" secondItem="U6C-fB-MlJ" secondAttribute="bottom" constant="8" symbolic="YES" id="3YJ-kZ-oxJ"/>
+                            <constraint firstItem="EES-lG-PAo" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="8Zh-10-yUc"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="6Zh-hV-iJB" secondAttribute="trailing" constant="16" id="D2D-y6-z08"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="oBv-T0-ihL" secondAttribute="trailing" constant="16" id="Foq-mE-ya5"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="1WM-ac-tHr" secondAttribute="trailing" constant="16" id="GJM-Iz-BjM"/>
+                            <constraint firstItem="lHK-ak-J7c" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="HFk-jd-8iJ"/>
+                            <constraint firstItem="0Kb-Iu-Of2" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="K71-Ea-urp"/>
+                            <constraint firstItem="6Zh-hV-iJB" firstAttribute="top" secondItem="0Kb-Iu-Of2" secondAttribute="bottom" constant="40" id="KQ8-mi-foJ"/>
+                            <constraint firstItem="oBv-T0-ihL" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="MPP-Os-0vt"/>
+                            <constraint firstItem="oBv-T0-ihL" firstAttribute="top" secondItem="OZu-HH-Q5q" secondAttribute="bottom" constant="8" symbolic="YES" id="N0r-hV-sHd"/>
+                            <constraint firstItem="pPp-VY-Ji8" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="NXd-Mv-iFS"/>
+                            <constraint firstItem="lHK-ak-J7c" firstAttribute="top" secondItem="EES-lG-PAo" secondAttribute="bottom" constant="8" symbolic="YES" id="O2i-JF-GOk"/>
+                            <constraint firstItem="EES-lG-PAo" firstAttribute="top" secondItem="oBv-T0-ihL" secondAttribute="bottom" constant="40" id="RRv-N0-nDo"/>
+                            <constraint firstItem="OZu-HH-Q5q" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="SQA-Eb-n1S"/>
+                            <constraint firstItem="pPp-VY-Ji8" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="UAw-If-MPv"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="lHK-ak-J7c" secondAttribute="trailing" constant="16" id="XyA-vz-TmE"/>
+                            <constraint firstItem="U6C-fB-MlJ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="YJ5-ZB-1lL"/>
+                            <constraint firstItem="1WM-ac-tHr" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="YkH-T6-A7C"/>
+                            <constraint firstItem="pPp-VY-Ji8" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="bof-Te-Jkw"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="0Kb-Iu-Of2" secondAttribute="trailing" constant="16" id="nLL-sh-ckn"/>
+                            <constraint firstItem="1WM-ac-tHr" firstAttribute="top" secondItem="6Zh-hV-iJB" secondAttribute="bottom" constant="50" id="qDD-fe-Wgy"/>
+                            <constraint firstItem="U6C-fB-MlJ" firstAttribute="top" secondItem="lHK-ak-J7c" secondAttribute="bottom" constant="40" id="u86-eH-f2M"/>
+                            <constraint firstItem="6Zh-hV-iJB" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="ws3-NV-oF4"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="addChoreBtn" destination="1WM-ac-tHr" id="6f3-zd-UvI"/>
+                        <outlet property="annoTxtField" destination="0Kb-Iu-Of2" id="bzr-5z-18u"/>
+                        <outlet property="choreStatusSegControl" destination="6Zh-hV-iJB" id="4bT-lQ-uLX"/>
+                        <outlet property="descTxtField" destination="lHK-ak-J7c" id="j4V-Fk-NlP"/>
+                        <outlet property="titleTxtField" destination="oBv-T0-ihL" id="WDe-GA-y4l"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="135.1145038167939" y="3.5211267605633805"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="arrowshape.left.circle.fill" catalog="system" width="128" height="123"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

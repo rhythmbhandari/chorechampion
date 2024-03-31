@@ -12,6 +12,8 @@
 		A411781F2BB90F630046170C /* ChoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A411781E2BB90F630046170C /* ChoreModel.swift */; };
 		A41178252BB9137D0046170C /* UIViewContollerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41178242BB9137D0046170C /* UIViewContollerExtension.swift */; };
 		A41178272BB913F60046170C /* MainControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41178262BB913F60046170C /* MainControllerExtension.swift */; };
+		A411782B2BB93FB90046170C /* AddChoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A411782A2BB93FB90046170C /* AddChoreViewController.swift */; };
+		A411782D2BB944C10046170C /* AddChore.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A411782C2BB944C10046170C /* AddChore.storyboard */; };
 		A455D8C82BB5532100903E11 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A455D8C72BB5532100903E11 /* GoogleService-Info.plist */; };
 		A455D8CB2BB553B100903E11 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = A455D8CA2BB553B100903E11 /* FirebaseAnalytics */; };
 		A455D8CD2BB553B100903E11 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = A455D8CC2BB553B100903E11 /* FirebaseAnalyticsOnDeviceConversion */; };
@@ -68,6 +70,8 @@
 		A411781E2BB90F630046170C /* ChoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoreModel.swift; sourceTree = "<group>"; };
 		A41178242BB9137D0046170C /* UIViewContollerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewContollerExtension.swift; sourceTree = "<group>"; };
 		A41178262BB913F60046170C /* MainControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainControllerExtension.swift; sourceTree = "<group>"; };
+		A411782A2BB93FB90046170C /* AddChoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddChoreViewController.swift; sourceTree = "<group>"; };
+		A411782C2BB944C10046170C /* AddChore.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddChore.storyboard; sourceTree = "<group>"; };
 		A455D8C72BB5532100903E11 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A455D9172BB55DC900903E11 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		A455D91F2BB55E7F00903E11 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -170,6 +174,7 @@
 			children = (
 				A495C8CC2BB3A1800053875E /* Login.storyboard */,
 				A455D9172BB55DC900903E11 /* Main.storyboard */,
+				A411782C2BB944C10046170C /* AddChore.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -179,6 +184,7 @@
 			children = (
 				A455D91F2BB55E7F00903E11 /* MainViewController.swift */,
 				A495C8CA2BB3A1800053875E /* LoginViewController.swift */,
+				A411782A2BB93FB90046170C /* AddChoreViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -335,6 +341,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A411782D2BB944C10046170C /* AddChore.storyboard in Resources */,
 				A495C8D32BB3A1810053875E /* LaunchScreen.storyboard in Resources */,
 				A455D9182BB55DC900903E11 /* Main.storyboard in Resources */,
 				A455D8C82BB5532100903E11 /* GoogleService-Info.plist in Resources */,
@@ -354,6 +361,7 @@
 				A41178272BB913F60046170C /* MainControllerExtension.swift in Sources */,
 				A41178152BB90A020046170C /* FirebaseAuthenticationService.swift in Sources */,
 				A4672CE22BB62A640040B503 /* CredentialsModel.swift in Sources */,
+				A411782B2BB93FB90046170C /* AddChoreViewController.swift in Sources */,
 				A495C8CB2BB3A1800053875E /* LoginViewController.swift in Sources */,
 				A4672CE02BB629E20040B503 /* AuthProtocol.swift in Sources */,
 				A495C8C72BB3A1800053875E /* AppDelegate.swift in Sources */,
