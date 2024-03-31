@@ -17,6 +17,7 @@
 		A41178312BBA119C0046170C /* AuthDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41178302BBA119C0046170C /* AuthDelegate.swift */; };
 		A41178332BBA11D70046170C /* ChoresManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41178322BBA11D70046170C /* ChoresManaging.swift */; };
 		A41178352BBA12280046170C /* InMemoryChoresManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41178342BBA12280046170C /* InMemoryChoresManager.swift */; };
+		A41178372BBA150F0046170C /* AddChoreDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41178362BBA150F0046170C /* AddChoreDelegate.swift */; };
 		A455D8C82BB5532100903E11 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A455D8C72BB5532100903E11 /* GoogleService-Info.plist */; };
 		A455D8CB2BB553B100903E11 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = A455D8CA2BB553B100903E11 /* FirebaseAnalytics */; };
 		A455D8CD2BB553B100903E11 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = A455D8CC2BB553B100903E11 /* FirebaseAnalyticsOnDeviceConversion */; };
@@ -77,6 +78,7 @@
 		A41178302BBA119C0046170C /* AuthDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDelegate.swift; sourceTree = "<group>"; };
 		A41178322BBA11D70046170C /* ChoresManaging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoresManaging.swift; sourceTree = "<group>"; };
 		A41178342BBA12280046170C /* InMemoryChoresManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryChoresManager.swift; sourceTree = "<group>"; };
+		A41178362BBA150F0046170C /* AddChoreDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddChoreDelegate.swift; sourceTree = "<group>"; };
 		A455D8C72BB5532100903E11 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A455D9172BB55DC900903E11 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		A455D91F2BB55E7F00903E11 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 			children = (
 				A41178302BBA119C0046170C /* AuthDelegate.swift */,
 				A41178322BBA11D70046170C /* ChoresManaging.swift */,
+				A41178362BBA150F0046170C /* AddChoreDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -372,6 +375,7 @@
 				A4672CE22BB62A640040B503 /* CredentialsModel.swift in Sources */,
 				A411782B2BB93FB90046170C /* AddChoreViewController.swift in Sources */,
 				A495C8CB2BB3A1800053875E /* LoginViewController.swift in Sources */,
+				A41178372BBA150F0046170C /* AddChoreDelegate.swift in Sources */,
 				A495C8C72BB3A1800053875E /* AppDelegate.swift in Sources */,
 				A495C8C92BB3A1800053875E /* SceneDelegate.swift in Sources */,
 				A455D9202BB55E7F00903E11 /* MainViewController.swift in Sources */,

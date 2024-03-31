@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainViewController:UIViewController {
+class MainViewController:UIViewController, AddChoreDelegate {
     var authManager: AuthManager?
     var choresManager: ChoresManaging?
     
@@ -37,12 +37,18 @@ class MainViewController:UIViewController {
     
     @IBAction func onAddButtonPressed(_ sender: Any) {
         let storyboard = UIStoryboard(name: "AddChore", bundle: nil)
-        if let addChoreVC = storyboard.instantiateViewController(withIdentifier: "AddChoreViewController") as? AddChoreViewController {
+        if let addChoreVC = storyboard.instantiateViewController(withIdentifier: "AddChoreViewController") as? AddChoreViewController {            
+            addChoreVC.delegate = self
+            addChoreVC.choresManager = self.choresManager
             addChoreVC.modalPresentationStyle = .overCurrentContext
-            
             present(addChoreVC, animated: true, completion: nil)
         }
     }
     
+    func choreAdded() {
+        DispatchQueue.main.async {
+                self.choreTable.reloadData()
+        }
+    }
 }
 

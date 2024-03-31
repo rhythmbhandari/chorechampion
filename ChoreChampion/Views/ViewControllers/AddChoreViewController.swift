@@ -8,8 +8,9 @@
 import UIKit
 
 class AddChoreViewController: UIViewController {
-    
-    
+    var choresManager: ChoresManaging?
+    var delegate: AddChoreDelegate?
+
     @IBOutlet weak var titleTxtField: UITextField!
     
     @IBOutlet weak var descTxtField: UITextField!
@@ -82,11 +83,12 @@ class AddChoreViewController: UIViewController {
            let selectedChoreStatus = ChoreStatus(rawValue: choreStatusSegControl.selectedSegmentIndex) {
             DispatchQueue.main.async {
                 sender.isEnabled = true
-                self.hideSpinner(for: sender)
-                print("Test \(enteredTitle)")
-                print("Test \(enteredDescription)")
-                print("Test \(enteredAnnotation)")
-                print("Test \(selectedChoreStatus)")
+                self.hideSpinner(for: sender)                
+                self.choresManager?.addChore(Chore(title: enteredTitle, description: enteredDescription, status: selectedChoreStatus, annotation: enteredAnnotation))
+
+                self.dismiss(animated: true) {
+                    self.delegate?.choreAdded()
+                }
             }
         }
     }

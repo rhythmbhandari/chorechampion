@@ -10,6 +10,7 @@ import UIKit
 
 extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("Total chores \(String(describing: choresManager?.fetchChores().count))")
         return choresManager?.fetchChores().count ?? 0
     }
     
@@ -20,10 +21,12 @@ extension MainViewController: UITableViewDataSource {
             var content = cell.defaultContentConfiguration()
             content.text = chore.title
             content.secondaryText = chore.description
+            
+             print("Total chores description\(String(describing: content.secondaryText))")
             cell.contentConfiguration = content
         }
        
-        
+
         return cell
     }
 }
