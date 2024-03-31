@@ -24,7 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         Auth.auth().addStateDidChangeListener { (auth, user) in
             let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let loginStoryboard = UIStoryboard(name: "Login", bundle: nil)
-            if user == nil {
+            if user != nil {
                 let mainViewController = mainStoryboard.instantiateViewController(withIdentifier: "MainViewController")
                 window.rootViewController = mainViewController
             } else {

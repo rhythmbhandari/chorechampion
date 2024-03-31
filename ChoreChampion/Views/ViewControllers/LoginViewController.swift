@@ -15,14 +15,15 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailErrLabel: UILabel!
     @IBOutlet weak var passErrLabel: UILabel!
     
-    var authDelegate: AuthenticationDelegate?
-    
+    var authManager: AuthManager!
+
     @IBOutlet weak var loginBtn: UIButton!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        authDelegate = AuthManager()
+        let authService = FirebaseAuthenticationService()
+        authManager = AuthManager(authService: authService)
     }
     
     @IBAction func onEmailChanged(_ sender: UITextField) {
@@ -77,14 +78,20 @@ class LoginViewController: UIViewController {
         
         if let enteredEmail = emailTxtField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
            let enteredPassword = passTxtField.text?.trimmingCharacters(in: .whitespacesAndNewlines) {
-            authDelegate?.signIn(with: Credentials(email: enteredEmail, password: enteredPassword)) { [weak self] error in
-                sender.isEnabled = true
-                self?.hideSpinner(for: sender)
+            
+            let credentials = Credentials(email: enteredEmail, password: enteredPassword)
+            authManager?.signIn(with: credentials) { [weak self] result in
                 
-                if let error = error {
-                    self?.showAlert(title: "Login Failed", message: error.localizedDescription)
-                } else {
-                    self?.navigateToMainViewController()
+                DispatchQueue.main.async {
+                    sender.isEnabled = true
+                    self?.hideSpinner(for: sender)
+                    
+                    switch result {
+                    case .success():
+                        return
+                    case .failure(let error):
+                        self?.showAlert(title: "Login Failed", message: error.localizedDescription)
+                    }
                 }
             }
         }
@@ -119,31 +126,6 @@ class LoginViewController: UIViewController {
         sceneDelegate.window?.rootViewController = mainViewController
     }
     
-    
-    
-    func showAlert(
-        title: String,
-        message: String
-    ) {
-        let alert = UIAlertController(
-            title: title,
-            message: message,
-            preferredStyle: .alert
-        )
-        let okAction = UIAlertAction(
-            title: "OK",
-            style: .default
-        ) { _ in
-            
-        }
-        alert.addAction(
-            okAction
-        )
-        present(
-            alert,
-            animated: true,
-            completion: nil
-        )
-    }
-    
 }
+
+
