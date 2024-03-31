@@ -17,7 +17,9 @@ class MainViewController:UIViewController, AddChoreDelegate {
         super.viewDidLoad()
         let authService = FirebaseAuthenticationService()
         authManager = AuthManager(authService: authService)
-        choresManager = InMemoryChoresManager()
+//        choresManager = InMemoryChoresManager()
+        choresManager = UserDefaultsChoresManager()
+
         choreTable.dataSource = self
         choreTable.reloadData()
     }
