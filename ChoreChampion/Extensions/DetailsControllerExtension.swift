@@ -25,6 +25,8 @@ extension DetailsViewController: UIPickerViewDelegate {
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        let selectedChoreType = ChoreType.allCases[row]
+        selectedChoreType = ChoreType.allCases[row]
+        print("Selected chore type: \(String(describing: selectedChoreType))")
+
     }
 }

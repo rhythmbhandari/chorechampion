@@ -23,11 +23,13 @@ class DetailsViewController: UIViewController {
     
     @IBOutlet weak var typeOfChorePicker: UIPickerView!
     
-    @IBOutlet weak var choreTypeSegControl: UISegmentedControl!
+    @IBOutlet weak var choreStatusSegControl: UISegmentedControl!
     
     @IBOutlet weak var addChoreBtn: UIButton!
     
     @IBOutlet weak var choreDatePicker: UIDatePicker!
+    
+    var selectedChoreType: ChoreType?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +48,7 @@ class DetailsViewController: UIViewController {
         }
         
         switch type {
-        case ChoreStatus.completed:
+        case .completed:
             dateLabel.text = "Completed Date"
         default:
             dateLabel.text = "Anticipated Date"
@@ -94,32 +96,52 @@ class DetailsViewController: UIViewController {
     }
     
     @IBAction func onAssigneeChanged(_ sender: UITextField) {
-        guard let newText = sender.text, !newText.isEmpty else {
-            toggleError(
-                value: true,
-                for: assigneeErrLabel
-            )
+        guard let status = ChoreStatus(rawValue: choreStatusSegControl.selectedSegmentIndex - 1 ) else {
             return
         }
-        
-        toggleError(
-            value: false,
-            for: assigneeErrLabel
-        )
+        if(status == .completed){
+            guard let newText = sender.text, !newText.isEmpty else {
+                toggleError(
+                    value: true,
+                    for: assigneeErrLabel
+                )
+                return
+            }
+            
+            toggleError(
+                value: false,
+                for: assigneeErrLabel
+            )
+        }
     }
     
     
     @IBAction func onAddChoreBtnPressed(_ sender: UIButton) {
         sender.isEnabled = false
-        showSpinner(for: sender)
+        
+        guard let selectedStatusOfChore = ChoreStatus(rawValue: choreStatusSegControl.selectedSegmentIndex - 1 ) else{
+            self.showAlert(title: "Status of Chore", message: "Please select a status other than Not Stated.")
+            
+            sender.isEnabled = true
+            return
+        }
+        
+        if(selectedStatusOfChore == .completed){
+            guard (assigneeTxtField.text?.trimmingCharacters(in: .whitespacesAndNewlines)) != nil else{
+                self.showAlert(title: "Assignee", message: "Please enter who completed this task")
+                sender.isEnabled = true
+                return
+            }
+        }
+        
+        
         
         if let enteredTitle = titleTxtField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
-           let enteredAssignee = assigneeTxtField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
-           let selectedTypeOfChore = ChoreStatus(rawValue: choreTypeSegControl.selectedSegmentIndex) {
+           let selectedTypeOfChore = selectedChoreType{
             DispatchQueue.main.async {
                 sender.isEnabled = true
-                self.hideSpinner(for: sender)                
-                //self.choresManager?.addChore(Chore(title: enteredTitle, description: enteredDescription, status: selectedChoreStatus, annotation: enteredAnnotation))
+                print("")
+                self.choresManager?.addChore(Chore(id: UUID().uuidString, title: enteredTitle, status: selectedStatusOfChore, type: selectedTypeOfChore, assignee: self.assigneeTxtField.text?.trimmingCharacters(in: .whitespacesAndNewlines), completionDate: self.choreDatePicker.date, detailsAnnotation: self.annoTxtField.text?.trimmingCharacters(in: .whitespacesAndNewlines)))
 
                 self.dismiss(animated: true) {
                     self.delegate?.choreAdded()
@@ -141,25 +163,9 @@ class DetailsViewController: UIViewController {
     }
     
     func checkAddButtonStatus() {
-        addChoreBtn.isEnabled = !titleTxtField.text!.isEmpty && !assigneeTxtField.text!.isEmpty
+        addChoreBtn.isEnabled = !titleTxtField.text!.isEmpty
     }
     
-    func showSpinner(for button: UIButton) {
-        let spinner = UIActivityIndicatorView(style: .medium)
-        spinner.color = .systemTeal
-        spinner.startAnimating()
-        button.addSubview(spinner)
-        spinner.center = CGPoint(x: button.bounds.width / 2, y: button.bounds.height / 2)
-        button.setTitle("", for: .normal)
-    }
-    
-    func hideSpinner(for button: UIButton) {
-        button.subviews.compactMap { $0 as? UIActivityIndicatorView }.forEach {
-            $0.stopAnimating()
-            $0.removeFromSuperview()
-        }
-        button.setTitle("Add", for: .normal)
-    }
     
 }
 

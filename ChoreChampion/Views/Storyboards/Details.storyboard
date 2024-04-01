@@ -63,7 +63,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
-                                                    <action selector="onTitleChanged:" destination="Y6W-OH-hqX" eventType="editingDidEnd" id="eDz-If-MHR"/>
+                                                    <action selector="onTitleChanged:" destination="Y6W-OH-hqX" eventType="editingChanged" id="KDu-W2-ywx"/>
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter who worked on this chore" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZH0-xx-5vc">
@@ -71,7 +71,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
-                                                    <action selector="onAssigneeChanged:" destination="Y6W-OH-hqX" eventType="editingDidEnd" id="Rtt-Vo-MmV"/>
+                                                    <action selector="onAssigneeChanged:" destination="Y6W-OH-hqX" eventType="editingChanged" id="qhl-Tg-VzM"/>
                                                 </connections>
                                             </textField>
                                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter who completed this chore" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="89q-AG-rTv">
@@ -228,7 +228,7 @@
                         <outlet property="assigneeErrLabel" destination="89q-AG-rTv" id="Wqc-Fi-VOy"/>
                         <outlet property="assigneeTxtField" destination="ZH0-xx-5vc" id="Wh5-O3-Pgn"/>
                         <outlet property="choreDatePicker" destination="a6o-YN-vaq" id="YQl-aB-Paq"/>
-                        <outlet property="choreTypeSegControl" destination="BF7-E2-zSg" id="QcZ-gd-Jxb"/>
+                        <outlet property="choreStatusSegControl" destination="BF7-E2-zSg" id="HNK-J9-GJK"/>
                         <outlet property="dateLabel" destination="0vS-IO-ktH" id="qNq-Og-2Ml"/>
                         <outlet property="statusOfChoreErrLabel" destination="doI-Lv-62S" id="u3a-4K-qal"/>
                         <outlet property="titleErrLabel" destination="eEO-ZF-yp5" id="36f-6d-iZH"/>
