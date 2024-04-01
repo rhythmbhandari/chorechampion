@@ -16,155 +16,183 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name of Chore" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZA4-V4-hPB">
-                                <rect key="frame" x="16" y="119.00000000000001" width="361" height="20.666666666666671"/>
-                                <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="18"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type of Chore" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zhG-tb-lpb">
-                                <rect key="frame" x="16" y="222" width="361" height="20.666666666666657"/>
-                                <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="18"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Assignee" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CQI-Gp-UKK">
-                                <rect key="frame" x="16" y="322" width="361" height="20.666666666666686"/>
-                                <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="18"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status of Chore" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s7C-Us-ego">
-                                <rect key="frame" x="16" y="493" width="361" height="20.666666666666629"/>
-                                <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="18"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter your chore title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eEO-ZF-yp5">
-                                <rect key="frame" x="16" y="189.66666666666666" width="361" height="16.333333333333343"/>
-                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="14"/>
-                                <color key="textColor" systemColor="systemRedColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please select a status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="doI-Lv-62S">
-                                <rect key="frame" x="16" y="289.66666666666669" width="361" height="16.333333333333314"/>
-                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="14"/>
-                                <color key="textColor" systemColor="systemRedColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter chore name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oZV-Sa-8CF">
-                                <rect key="frame" x="16" y="147.66666666666666" width="361" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter who worked on this chore" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZH0-xx-5vc">
-                                <rect key="frame" x="16" y="350.66666666666669" width="361" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter who completed this chore" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="89q-AG-rTv">
-                                <rect key="frame" x="16" y="392.66666666666669" width="361" height="16.333333333333314"/>
-                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="14"/>
-                                <color key="textColor" systemColor="systemRedColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="BF7-E2-zSg">
-                                <rect key="frame" x="16" y="250.66666666666663" width="363" height="32"/>
-                                <segments>
-                                    <segment title="Not Stated"/>
-                                    <segment title="Not Started"/>
-                                    <segment title="In Progress"/>
-                                    <segment title="Completed"/>
-                                </segments>
-                                <color key="selectedSegmentTintColor" systemColor="systemTealColor"/>
-                            </segmentedControl>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1WM-ac-tHr">
-                                <rect key="frame" x="16" y="767.66666666666663" width="361" height="34.333333333333371"/>
-                                <color key="tintColor" red="0.21960784310000001" green="0.69019607839999997" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Add"/>
-                                <connections>
-                                    <action selector="onAddChoreBtnPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="qPe-NY-x7n"/>
-                                </connections>
-                            </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="31" translatesAutoresizingMaskIntoConstraints="NO" id="6x2-nm-XQU">
-                                <rect key="frame" x="16" y="427" width="361" height="50"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OyY-S6-mDZ">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0vS-IO-ktH">
-                                        <rect key="frame" x="0.0" y="0.0" width="37.666666666666664" height="50"/>
-                                        <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="18"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="a6o-YN-vaq">
-                                        <rect key="frame" x="68.666666666666657" y="0.0" width="292.33333333333337" height="50"/>
-                                    </datePicker>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Obe-z5-FlD">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="866"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name of Chore" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZA4-V4-hPB">
+                                                <rect key="frame" x="20" y="139" width="353" height="20.666666666666657"/>
+                                                <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="18"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type of Chore" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zhG-tb-lpb">
+                                                <rect key="frame" x="20" y="242" width="353" height="20.666666666666686"/>
+                                                <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="18"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Assignee" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CQI-Gp-UKK">
+                                                <rect key="frame" x="20" y="342" width="353" height="20.666666666666686"/>
+                                                <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="18"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status of Chore" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s7C-Us-ego">
+                                                <rect key="frame" x="20" y="513" width="353" height="20.666666666666629"/>
+                                                <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="18"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter your chore title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eEO-ZF-yp5">
+                                                <rect key="frame" x="20" y="209.66666666666666" width="353" height="16.333333333333343"/>
+                                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="14"/>
+                                                <color key="textColor" systemColor="systemRedColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please select a status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="doI-Lv-62S">
+                                                <rect key="frame" x="20" y="309.66666666666669" width="353" height="16.333333333333314"/>
+                                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="14"/>
+                                                <color key="textColor" systemColor="systemRedColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter chore name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oZV-Sa-8CF">
+                                                <rect key="frame" x="20" y="167.66666666666666" width="353" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter who worked on this chore" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZH0-xx-5vc">
+                                                <rect key="frame" x="20" y="370.66666666666669" width="353" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter who completed this chore" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="89q-AG-rTv">
+                                                <rect key="frame" x="20" y="412.66666666666669" width="353" height="16.333333333333314"/>
+                                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="14"/>
+                                                <color key="textColor" systemColor="systemRedColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="BF7-E2-zSg">
+                                                <rect key="frame" x="20" y="270.66666666666669" width="353" height="32"/>
+                                                <segments>
+                                                    <segment title="Not Stated"/>
+                                                    <segment title="Not Started"/>
+                                                    <segment title="In Progress"/>
+                                                    <segment title="Completed"/>
+                                                </segments>
+                                                <color key="selectedSegmentTintColor" systemColor="systemTealColor"/>
+                                            </segmentedControl>
+                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1WM-ac-tHr">
+                                                <rect key="frame" x="20" y="777.66666666666663" width="353" height="34.333333333333371"/>
+                                                <color key="tintColor" red="0.21960784310000001" green="0.69019607839999997" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="filled" title="Add"/>
+                                                <connections>
+                                                    <action selector="onAddChoreBtnPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="qPe-NY-x7n"/>
+                                                </connections>
+                                            </button>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="31" translatesAutoresizingMaskIntoConstraints="NO" id="6x2-nm-XQU">
+                                                <rect key="frame" x="20" y="447" width="353" height="50"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0vS-IO-ktH">
+                                                        <rect key="frame" x="0.0" y="0.0" width="37.666666666666664" height="50"/>
+                                                        <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="18"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="a6o-YN-vaq">
+                                                        <rect key="frame" x="68.666666666666686" y="0.0" width="284.33333333333331" height="50"/>
+                                                    </datePicker>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="g0C-Wd-tui">
+                                                <rect key="frame" x="20" y="79" width="353" height="34.333333333333343"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kHF-3K-8Yh">
+                                                        <rect key="frame" x="0.0" y="0.0" width="127.66666666666667" height="34.333333333333336"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                                    </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add New Chore" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rp3-27-X6G">
+                                                        <rect key="frame" x="227.66666666666666" y="0.0" width="125.33333333333334" height="34.333333333333336"/>
+                                                        <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="18"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="clH-Wc-yKi">
+                                                <rect key="frame" x="20" y="549.66666666666663" width="353" height="216"/>
+                                            </pickerView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="doI-Lv-62S" firstAttribute="top" secondItem="BF7-E2-zSg" secondAttribute="bottom" constant="8" id="1xz-ip-KFC"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="ZH0-xx-5vc" secondAttribute="trailing" constant="12" id="2Yk-1b-46T"/>
+                                            <constraint firstItem="1WM-ac-tHr" firstAttribute="leading" secondItem="Obe-z5-FlD" secondAttribute="leadingMargin" constant="12" id="3VJ-bS-siU"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="oZV-Sa-8CF" secondAttribute="trailing" constant="12" id="63i-p4-pqD"/>
+                                            <constraint firstItem="g0C-Wd-tui" firstAttribute="leading" secondItem="Obe-z5-FlD" secondAttribute="leadingMargin" constant="12" id="6Te-HC-ybw"/>
+                                            <constraint firstItem="89q-AG-rTv" firstAttribute="leading" secondItem="Obe-z5-FlD" secondAttribute="leadingMargin" constant="12" id="74t-1R-tPI"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="6x2-nm-XQU" secondAttribute="trailing" constant="12" id="8et-nd-Cpl"/>
+                                            <constraint firstItem="doI-Lv-62S" firstAttribute="leading" secondItem="Obe-z5-FlD" secondAttribute="leadingMargin" constant="12" id="8rY-7r-ZQe"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="eEO-ZF-yp5" secondAttribute="trailing" constant="12" id="Bgc-oV-Srl"/>
+                                            <constraint firstItem="ZA4-V4-hPB" firstAttribute="top" secondItem="g0C-Wd-tui" secondAttribute="bottom" constant="25.670000000000002" id="Dys-dE-4CA"/>
+                                            <constraint firstItem="CQI-Gp-UKK" firstAttribute="leading" secondItem="Obe-z5-FlD" secondAttribute="leadingMargin" constant="12" id="G1k-4z-uCV"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="CQI-Gp-UKK" secondAttribute="trailing" constant="12" id="IjC-nk-DOo"/>
+                                            <constraint firstItem="clH-Wc-yKi" firstAttribute="top" secondItem="s7C-Us-ego" secondAttribute="bottom" constant="16" id="ImP-Sg-dzp"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="1WM-ac-tHr" secondAttribute="trailing" constant="12" id="JkD-lC-bny"/>
+                                            <constraint firstItem="BF7-E2-zSg" firstAttribute="leading" secondItem="Obe-z5-FlD" secondAttribute="leadingMargin" constant="12" id="L2q-F4-WKy"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="clH-Wc-yKi" secondAttribute="trailing" constant="12" id="Lhe-4c-ZYy"/>
+                                            <constraint firstItem="g0C-Wd-tui" firstAttribute="top" secondItem="Obe-z5-FlD" secondAttribute="topMargin" constant="12" id="M6Y-tf-4Nl"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="89q-AG-rTv" secondAttribute="trailing" constant="12" id="OqF-tg-cwV"/>
+                                            <constraint firstItem="clH-Wc-yKi" firstAttribute="leading" secondItem="Obe-z5-FlD" secondAttribute="leadingMargin" constant="12" id="OzR-Wb-g1W"/>
+                                            <constraint firstItem="CQI-Gp-UKK" firstAttribute="top" secondItem="doI-Lv-62S" secondAttribute="bottom" constant="16" id="PRy-WP-qBu"/>
+                                            <constraint firstItem="oZV-Sa-8CF" firstAttribute="leading" secondItem="Obe-z5-FlD" secondAttribute="leadingMargin" constant="12" id="PTf-9g-6aX"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="1WM-ac-tHr" secondAttribute="bottom" constant="12" id="PoN-UH-SYR"/>
+                                            <constraint firstItem="6x2-nm-XQU" firstAttribute="top" secondItem="89q-AG-rTv" secondAttribute="bottom" constant="18" id="UcW-d3-pb1"/>
+                                            <constraint firstItem="oZV-Sa-8CF" firstAttribute="top" secondItem="ZA4-V4-hPB" secondAttribute="bottom" constant="8" id="V64-1b-boX"/>
+                                            <constraint firstItem="ZH0-xx-5vc" firstAttribute="leading" secondItem="Obe-z5-FlD" secondAttribute="leadingMargin" constant="12" id="Vdp-9W-zEN"/>
+                                            <constraint firstItem="ZA4-V4-hPB" firstAttribute="leading" secondItem="Obe-z5-FlD" secondAttribute="leadingMargin" constant="12" id="Wag-r9-MWr"/>
+                                            <constraint firstItem="1WM-ac-tHr" firstAttribute="top" secondItem="clH-Wc-yKi" secondAttribute="bottom" constant="12" id="XQy-Fd-PC9"/>
+                                            <constraint firstItem="s7C-Us-ego" firstAttribute="leading" secondItem="Obe-z5-FlD" secondAttribute="leadingMargin" constant="12" id="a5W-fI-EKe"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="doI-Lv-62S" secondAttribute="trailing" constant="12" id="brC-bS-6M7"/>
+                                            <constraint firstItem="89q-AG-rTv" firstAttribute="top" secondItem="ZH0-xx-5vc" secondAttribute="bottom" constant="8" id="c7b-o2-4Oh"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="ZA4-V4-hPB" secondAttribute="trailing" constant="12" id="cm5-Ff-EAR"/>
+                                            <constraint firstItem="BF7-E2-zSg" firstAttribute="top" secondItem="zhG-tb-lpb" secondAttribute="bottom" constant="8" id="f7C-CD-bnY"/>
+                                            <constraint firstItem="eEO-ZF-yp5" firstAttribute="top" secondItem="oZV-Sa-8CF" secondAttribute="bottom" constant="8" symbolic="YES" id="g1C-JT-jbQ"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="BF7-E2-zSg" secondAttribute="trailing" constant="12" id="hbB-VP-Ra1"/>
+                                            <constraint firstItem="ZH0-xx-5vc" firstAttribute="top" secondItem="CQI-Gp-UKK" secondAttribute="bottom" constant="8" id="pDO-Cd-sEv"/>
+                                            <constraint firstItem="eEO-ZF-yp5" firstAttribute="leading" secondItem="Obe-z5-FlD" secondAttribute="leadingMargin" constant="12" id="q20-Jr-fiF"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="g0C-Wd-tui" secondAttribute="trailing" constant="12" id="t4B-sy-1zv"/>
+                                            <constraint firstItem="zhG-tb-lpb" firstAttribute="leading" secondItem="Obe-z5-FlD" secondAttribute="leadingMargin" constant="12" id="vcF-zI-DLM"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="zhG-tb-lpb" secondAttribute="trailing" constant="12" id="vgG-Hy-qVB"/>
+                                            <constraint firstItem="s7C-Us-ego" firstAttribute="top" secondItem="6x2-nm-XQU" secondAttribute="bottom" constant="16" id="wcu-HG-VDd"/>
+                                            <constraint firstItem="6x2-nm-XQU" firstAttribute="leading" secondItem="Obe-z5-FlD" secondAttribute="leadingMargin" constant="12" id="whH-cK-3cR"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="s7C-Us-ego" secondAttribute="trailing" constant="12" id="xmb-0i-yYt"/>
+                                            <constraint firstItem="zhG-tb-lpb" firstAttribute="top" secondItem="eEO-ZF-yp5" secondAttribute="bottom" constant="16" id="yn8-xG-7Nk"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
-                            </stackView>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="clH-Wc-yKi">
-                                <rect key="frame" x="16" y="529.66666666666663" width="361" height="216"/>
-                            </pickerView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="g0C-Wd-tui">
-                                <rect key="frame" x="16" y="59" width="361" height="34.333333333333343"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kHF-3K-8Yh">
-                                        <rect key="frame" x="0.0" y="0.0" width="135.66666666666666" height="34.333333333333336"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Button"/>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add New Chore" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rp3-27-X6G">
-                                        <rect key="frame" x="235.66666666666666" y="0.0" width="125.33333333333334" height="34.333333333333336"/>
-                                        <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="18"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
+                                <constraints>
+                                    <constraint firstItem="Obe-z5-FlD" firstAttribute="top" secondItem="OyY-S6-mDZ" secondAttribute="top" id="4Ng-GR-qhZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="Obe-z5-FlD" secondAttribute="bottom" id="IAw-w0-LAT"/>
+                                    <constraint firstAttribute="trailing" secondItem="Obe-z5-FlD" secondAttribute="trailing" id="Y7H-Mx-xL7"/>
+                                    <constraint firstItem="Obe-z5-FlD" firstAttribute="leading" secondItem="OyY-S6-mDZ" secondAttribute="leading" id="qAb-lP-xz0"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="RHy-tE-jBm"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="azU-Yl-i8Q"/>
+                            </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="clH-Wc-yKi" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="0yX-SI-kZH"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="s7C-Us-ego" secondAttribute="trailing" constant="16" id="2DZ-5S-et7"/>
-                            <constraint firstItem="s7C-Us-ego" firstAttribute="top" secondItem="6x2-nm-XQU" secondAttribute="bottom" constant="16" id="4eC-0Q-gFm"/>
-                            <constraint firstItem="BF7-E2-zSg" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="5vo-ey-bEE"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="ZA4-V4-hPB" secondAttribute="trailing" constant="16" id="9Tx-l2-nTr"/>
-                            <constraint firstItem="g0C-Wd-tui" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="BGy-ri-xkc"/>
-                            <constraint firstItem="BF7-E2-zSg" firstAttribute="top" secondItem="zhG-tb-lpb" secondAttribute="bottom" constant="8" id="CaZ-9k-3XX"/>
-                            <constraint firstItem="89q-AG-rTv" firstAttribute="top" secondItem="ZH0-xx-5vc" secondAttribute="bottom" constant="8" id="FTz-lQ-fsB"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="1WM-ac-tHr" secondAttribute="trailing" constant="16" id="GJM-Iz-BjM"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="6x2-nm-XQU" secondAttribute="trailing" constant="16" id="ICQ-kf-lXM"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="1WM-ac-tHr" secondAttribute="bottom" constant="16" id="Ibc-Fv-bMn"/>
-                            <constraint firstItem="eEO-ZF-yp5" firstAttribute="top" secondItem="oZV-Sa-8CF" secondAttribute="bottom" constant="8" symbolic="YES" id="JlG-uw-AIh"/>
-                            <constraint firstItem="oZV-Sa-8CF" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="Jyt-dZ-lRm"/>
-                            <constraint firstItem="zhG-tb-lpb" firstAttribute="top" secondItem="eEO-ZF-yp5" secondAttribute="bottom" constant="16" id="Ln5-aJ-5Ec"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="ZH0-xx-5vc" secondAttribute="trailing" constant="16" id="R0u-5J-nPj"/>
-                            <constraint firstItem="ZA4-V4-hPB" firstAttribute="top" secondItem="g0C-Wd-tui" secondAttribute="bottom" constant="25.670000000000002" id="S87-Wy-OZW"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="g0C-Wd-tui" secondAttribute="trailing" constant="16" id="Syr-tD-g6d"/>
-                            <constraint firstItem="clH-Wc-yKi" firstAttribute="top" secondItem="s7C-Us-ego" secondAttribute="bottom" constant="16" id="Sz3-Gj-ciK"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="CQI-Gp-UKK" secondAttribute="trailing" constant="16" id="TGS-jz-Uhu"/>
-                            <constraint firstItem="CQI-Gp-UKK" firstAttribute="top" secondItem="doI-Lv-62S" secondAttribute="bottom" constant="16" id="TbW-IJ-FVY"/>
-                            <constraint firstItem="zhG-tb-lpb" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="UWz-LP-5gK"/>
-                            <constraint firstItem="89q-AG-rTv" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="Y5f-x9-HLf"/>
-                            <constraint firstItem="oZV-Sa-8CF" firstAttribute="top" secondItem="ZA4-V4-hPB" secondAttribute="bottom" constant="8" id="YPH-wA-gh4"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="oZV-Sa-8CF" secondAttribute="trailing" constant="16" id="YVl-S7-WmM"/>
-                            <constraint firstItem="1WM-ac-tHr" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="YkH-T6-A7C"/>
-                            <constraint firstItem="ZH0-xx-5vc" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="YnV-rW-xIv"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="doI-Lv-62S" secondAttribute="trailing" constant="16" id="b22-tD-5rb"/>
-                            <constraint firstItem="doI-Lv-62S" firstAttribute="top" secondItem="BF7-E2-zSg" secondAttribute="bottom" constant="8" id="cGH-Gf-wrz"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="eEO-ZF-yp5" secondAttribute="trailing" constant="16" id="ena-hy-PYN"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="89q-AG-rTv" secondAttribute="trailing" constant="16" id="g1e-qI-M0C"/>
-                            <constraint firstItem="eEO-ZF-yp5" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="hBf-Sr-CZA"/>
-                            <constraint firstItem="s7C-Us-ego" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="hue-oL-kkN"/>
-                            <constraint firstItem="g0C-Wd-tui" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="lj5-JL-QJH"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="clH-Wc-yKi" secondAttribute="trailing" constant="16" id="llf-F3-3Qh"/>
-                            <constraint firstItem="ZA4-V4-hPB" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="nSC-AJ-zxO"/>
-                            <constraint firstItem="ZH0-xx-5vc" firstAttribute="top" secondItem="CQI-Gp-UKK" secondAttribute="bottom" constant="8" id="uet-Ph-Odj"/>
-                            <constraint firstItem="CQI-Gp-UKK" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="v1S-kR-9Gl"/>
-                            <constraint firstItem="doI-Lv-62S" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="vjd-Eh-cmq"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="zhG-tb-lpb" secondAttribute="trailing" constant="16" id="vza-oo-0j9"/>
-                            <constraint firstItem="6x2-nm-XQU" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="wFB-dv-2xd"/>
-                            <constraint firstItem="6x2-nm-XQU" firstAttribute="top" secondItem="89q-AG-rTv" secondAttribute="bottom" constant="18" id="yTK-df-Msg"/>
+                            <constraint firstItem="OyY-S6-mDZ" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="391-0U-C0Y"/>
+                            <constraint firstAttribute="trailing" secondItem="OyY-S6-mDZ" secondAttribute="trailing" id="IRN-ZD-tmm"/>
+                            <constraint firstItem="Obe-z5-FlD" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" id="Ols-cd-OjQ"/>
+                            <constraint firstAttribute="bottom" secondItem="OyY-S6-mDZ" secondAttribute="bottom" id="lAe-lb-fKn"/>
+                            <constraint firstItem="OyY-S6-mDZ" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="mKf-Ey-iB4"/>
                         </constraints>
                     </view>
                     <connections>
