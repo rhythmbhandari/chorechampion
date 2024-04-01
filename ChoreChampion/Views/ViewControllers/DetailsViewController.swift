@@ -12,15 +12,17 @@ class DetailsViewController: UIViewController {
     var delegate: AddChoreDelegate?
 
     @IBOutlet weak var titleTxtField: UITextField!
-    
-    @IBOutlet weak var descTxtField: UITextField!
-    
+    @IBOutlet weak var assigneeTxtField: UITextField!
     @IBOutlet weak var annoTxtField: UITextField!
-    @IBOutlet weak var titleErrLabel: UILabel!
-    @IBOutlet weak var descErrLabel: UILabel!
     
-    @IBOutlet weak var annoErrLabel: UILabel!
-    @IBOutlet weak var choreStatusSegControl: UISegmentedControl!
+    @IBOutlet weak var titleErrLabel: UILabel!
+    @IBOutlet weak var assigneeErrLabel: UILabel!
+    @IBOutlet weak var typeOfChoreErrLabel: UILabel!
+    
+    @IBOutlet weak var dateLabel: UILabel!
+    
+    
+    @IBOutlet weak var choreTypeSegControl: UISegmentedControl!
     
     @IBOutlet weak var addChoreBtn: UIButton!
     
@@ -93,10 +95,10 @@ class DetailsViewController: UIViewController {
         }
     }
     
-    @IBAction func onBackButtonPressed(_ sender: UIButton) {
+    @IBAction func onBackButtonPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-    
+        
     func toggleError(
         value: Bool,
         for errorLabel: UILabel
