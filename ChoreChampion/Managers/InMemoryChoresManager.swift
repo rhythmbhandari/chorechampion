@@ -29,8 +29,14 @@ class InMemoryChoresManager: ChoresManaging {
     }
     
     private func loadDefaultChores() {
-        chores.append(Chore(title: "First Chore", description: "First Description", status: .completed, annotation: "First Annotation"))
-        chores.append(Chore(title: "Second Chore", description: "Second Description", status: .inProgress, annotation: "Second Annotation"))
-        chores.append(Chore(title: "Third Chore", description: "Third Description", status: .notStarted, annotation: "Third Annotation"))
+        let dateFormatter = DateFormatter()
+
+        chores.append(Chore(id: UUID().uuidString, title: "First Chore", status: ChoreStatus.completed, type: ChoreType.authentication, assignee: "John Doe", completionDate: dateFormatter.date(from: "03-31-2024") , detailsAnnotation: "First Details"))
+        
+        
+        chores.append(Chore(id: UUID().uuidString, title: "Second Chore", status: ChoreStatus.completed, type: ChoreType.design, assignee: "Another John", completionDate: dateFormatter.date(from: "04-01-2024") , detailsAnnotation: "Second Details"))
+        
+        
+        chores.append(Chore(id: UUID().uuidString, title: "Third Chore", status: ChoreStatus.completed, type: ChoreType.deliverables, assignee: "Another Doe", completionDate: dateFormatter.date(from: "04-02-2024") , detailsAnnotation: "Third Details"))
     }
 }

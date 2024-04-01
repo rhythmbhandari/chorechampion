@@ -19,8 +19,8 @@ extension MainViewController: UITableViewDataSource {
         if let chore = choresManager?.fetchChores()[indexPath.row] {
             var content = cell.defaultContentConfiguration()
             content.text = chore.title
-            content.secondaryText = chore.description
-            content.image = UIImage(systemName: chore.status.icon)
+            content.secondaryText = "\(String(describing: chore.assignee)) completed this at \(String(describing: chore.completionDate))"
+            content.image = UIImage(systemName: chore.type.icon)
             content.imageProperties.tintColor = chore.status.color
 //            let config = UIImage.SymbolConfiguration(paletteColors: [.systemOrange,  chore.status.color, .quaternarySystemFill,])
 //            content.imageProperties.preferredSymbolConfiguration = config

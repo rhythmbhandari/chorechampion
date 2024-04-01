@@ -69,7 +69,7 @@ class DetailsViewController: UIViewController {
         
         toggleError(
             value: false,
-            for: annoErrLabel
+             for: annoErrLabel
         )
     }
     
@@ -84,7 +84,7 @@ class DetailsViewController: UIViewController {
             DispatchQueue.main.async {
                 sender.isEnabled = true
                 self.hideSpinner(for: sender)                
-                self.choresManager?.addChore(Chore(title: enteredTitle, description: enteredDescription, status: selectedChoreStatus, annotation: enteredAnnotation))
+                //self.choresManager?.addChore(Chore(title: enteredTitle, description: enteredDescription, status: selectedChoreStatus, annotation: enteredAnnotation))
 
                 self.dismiss(animated: true) {
                     self.delegate?.choreAdded()
