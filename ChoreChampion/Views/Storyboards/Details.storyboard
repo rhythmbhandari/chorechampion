@@ -28,7 +28,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type of Chore" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zhG-tb-lpb">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status of Chore" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zhG-tb-lpb">
                                                 <rect key="frame" x="20" y="175" width="353" height="20.666666666666657"/>
                                                 <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="18"/>
                                                 <nil key="textColor"/>
@@ -40,7 +40,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status of Chore" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s7C-Us-ego">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type of Chore" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s7C-Us-ego">
                                                 <rect key="frame" x="20" y="446" width="353" height="20.666666666666686"/>
                                                 <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="18"/>
                                                 <nil key="textColor"/>
@@ -62,11 +62,17 @@
                                                 <rect key="frame" x="20" y="100.66666666666667" width="353" height="34.000000000000014"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="onTitleChanged:" destination="Y6W-OH-hqX" eventType="editingDidEnd" id="eDz-If-MHR"/>
+                                                </connections>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter who worked on this chore" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZH0-xx-5vc">
                                                 <rect key="frame" x="20" y="303.66666666666669" width="353" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="onAssigneeChanged:" destination="Y6W-OH-hqX" eventType="editingDidEnd" id="Rtt-Vo-MmV"/>
+                                                </connections>
                                             </textField>
                                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter who completed this chore" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="89q-AG-rTv">
                                                 <rect key="frame" x="20" y="345.66666666666669" width="353" height="16.333333333333314"/>
@@ -83,6 +89,9 @@
                                                     <segment title="Completed"/>
                                                 </segments>
                                                 <color key="selectedSegmentTintColor" systemColor="systemTealColor"/>
+                                                <connections>
+                                                    <action selector="onStatusOfChoreChanged:" destination="Y6W-OH-hqX" eventType="valueChanged" id="1dJ-qj-ayC"/>
+                                                </connections>
                                             </segmentedControl>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="31" translatesAutoresizingMaskIntoConstraints="NO" id="6x2-nm-XQU">
                                                 <rect key="frame" x="20" y="380" width="353" height="50"/>
@@ -218,11 +227,13 @@
                         <outlet property="annoTxtField" destination="nQO-XA-prL" id="xsX-13-emx"/>
                         <outlet property="assigneeErrLabel" destination="89q-AG-rTv" id="Wqc-Fi-VOy"/>
                         <outlet property="assigneeTxtField" destination="ZH0-xx-5vc" id="Wh5-O3-Pgn"/>
+                        <outlet property="choreDatePicker" destination="a6o-YN-vaq" id="YQl-aB-Paq"/>
                         <outlet property="choreTypeSegControl" destination="BF7-E2-zSg" id="QcZ-gd-Jxb"/>
                         <outlet property="dateLabel" destination="0vS-IO-ktH" id="qNq-Og-2Ml"/>
+                        <outlet property="statusOfChoreErrLabel" destination="doI-Lv-62S" id="u3a-4K-qal"/>
                         <outlet property="titleErrLabel" destination="eEO-ZF-yp5" id="36f-6d-iZH"/>
                         <outlet property="titleTxtField" destination="oZV-Sa-8CF" id="0PC-XI-Tge"/>
-                        <outlet property="typeOfChoreErrLabel" destination="doI-Lv-62S" id="Qrm-Xn-gqz"/>
+                        <outlet property="typeOfChorePicker" destination="clH-Wc-yKi" id="Juj-iP-H5n"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

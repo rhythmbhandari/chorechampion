@@ -17,17 +17,65 @@ class DetailsViewController: UIViewController {
     
     @IBOutlet weak var titleErrLabel: UILabel!
     @IBOutlet weak var assigneeErrLabel: UILabel!
-    @IBOutlet weak var typeOfChoreErrLabel: UILabel!
+    @IBOutlet weak var statusOfChoreErrLabel: UILabel!
     
     @IBOutlet weak var dateLabel: UILabel!
     
+    @IBOutlet weak var typeOfChorePicker: UIPickerView!
     
     @IBOutlet weak var choreTypeSegControl: UISegmentedControl!
     
     @IBOutlet weak var addChoreBtn: UIButton!
     
+    @IBOutlet weak var choreDatePicker: UIDatePicker!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        typeOfChorePicker.delegate = self
+        typeOfChorePicker.dataSource = self
+        configureDatePicker(for: nil)
+    }
+    
+    @IBAction func onStatusOfChoreChanged(_ sender: UISegmentedControl) {
+        
+        guard let type = ChoreStatus(rawValue: sender.selectedSegmentIndex - 1) else{
+            dateLabel.text = "Date"
+            configureDatePicker(for: nil)
+            return
+        }
+        
+        switch type {
+        case ChoreStatus.completed:
+            dateLabel.text = "Completed Date"
+        default:
+            dateLabel.text = "Anticipated Date"
+        }
+        configureDatePicker(for: type)
+    }
+    
+    func configureDatePicker(for status: ChoreStatus?) {
+        let currentDate = Date()
+        let calendar = Calendar.current
+        choreDatePicker.datePickerMode = .date
+
+        guard let status = status else {
+//            choreDatePicker.isEnabled = false
+            return
+        }
+        
+//        choreDatePicker.isEnabled = true
+        
+        switch status {
+        case .completed:
+            choreDatePicker.maximumDate = currentDate
+            choreDatePicker.minimumDate = calendar.date(byAdding: .year, value: -1, to: currentDate)
+            
+        default:
+            choreDatePicker.minimumDate = currentDate
+            choreDatePicker.maximumDate = calendar.date(byAdding: .year, value: 1, to: currentDate)
+        }
+        
     }
     
     @IBAction func onTitleChanged(_ sender: UITextField) {
@@ -45,44 +93,29 @@ class DetailsViewController: UIViewController {
         )
     }
     
-    @IBAction func onDescriptionChanged(_ sender: UITextField) {
+    @IBAction func onAssigneeChanged(_ sender: UITextField) {
         guard let newText = sender.text, !newText.isEmpty else {
             toggleError(
                 value: true,
-                for: descErrLabel
+                for: assigneeErrLabel
             )
             return
         }
         
         toggleError(
             value: false,
-            for: descErrLabel
+            for: assigneeErrLabel
         )
     }
     
-    @IBAction func onAnnotationChanged(_ sender: UITextField) {
-        guard let newText = sender.text, !newText.isEmpty else {
-            toggleError(
-                value: true,
-                for: annoErrLabel
-            )
-            return
-        }
-        
-        toggleError(
-            value: false,
-             for: annoErrLabel
-        )
-    }
     
     @IBAction func onAddChoreBtnPressed(_ sender: UIButton) {
         sender.isEnabled = false
         showSpinner(for: sender)
         
         if let enteredTitle = titleTxtField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
-           let enteredDescription = descTxtField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
-           let enteredAnnotation = annoTxtField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
-           let selectedChoreStatus = ChoreStatus(rawValue: choreStatusSegControl.selectedSegmentIndex) {
+           let enteredAssignee = assigneeTxtField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
+           let selectedTypeOfChore = ChoreStatus(rawValue: choreTypeSegControl.selectedSegmentIndex) {
             DispatchQueue.main.async {
                 sender.isEnabled = true
                 self.hideSpinner(for: sender)                
@@ -108,7 +141,7 @@ class DetailsViewController: UIViewController {
     }
     
     func checkAddButtonStatus() {
-        addChoreBtn.isEnabled = !titleTxtField.text!.isEmpty && !descTxtField.text!.isEmpty && !annoTxtField.text!.isEmpty
+        addChoreBtn.isEnabled = !titleTxtField.text!.isEmpty && !assigneeTxtField.text!.isEmpty
     }
     
     func showSpinner(for button: UIButton) {

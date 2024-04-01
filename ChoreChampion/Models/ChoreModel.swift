@@ -35,7 +35,7 @@ enum ChoreStatus: Int, Codable {
     }
 }
 
-enum ChoreType: Int, Codable {
+enum ChoreType: Int, Codable, CaseIterable {
     case authentication
     case list
     case navigation
@@ -46,6 +46,21 @@ enum ChoreType: Int, Codable {
     case debugging
     case testing
     case deliverables
+    
+    var description: String {
+           switch self {
+           case .authentication: return "Authentication"
+           case .list: return "List"
+           case .navigation: return "Navigation"
+           case .networking: return "Networking"
+           case .persistence: return "Persistence"
+           case .meetingPlanning: return "Meeting/Planning"
+           case .design: return "Design"
+           case .debugging: return "Debugging"
+           case .testing: return "Testing"
+           case .deliverables: return "Deliverables"
+           }
+       }
     
     var info: String {
         switch self {
