@@ -20,10 +20,12 @@ extension MainViewController: UITableViewDataSource {
             var content = cell.defaultContentConfiguration()
             content.text = chore.title
             content.secondaryText = chore.description
-            
+            content.image = UIImage(systemName: chore.status.icon)
+            content.imageProperties.tintColor = chore.status.color
+//            let config = UIImage.SymbolConfiguration(paletteColors: [.systemOrange,  chore.status.color, .quaternarySystemFill,])
+//            content.imageProperties.preferredSymbolConfiguration = config
             cell.contentConfiguration = content
         }
-       
 
         return cell
     }

@@ -38,8 +38,8 @@ class MainViewController:UIViewController, AddChoreDelegate {
     }
     
     @IBAction func onAddButtonPressed(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "AddChore", bundle: nil)
-        if let addChoreVC = storyboard.instantiateViewController(withIdentifier: "AddChoreViewController") as? AddChoreViewController {            
+        let storyboard = UIStoryboard(name: "Details", bundle: nil)
+        if let addChoreVC = storyboard.instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController {            
             addChoreVC.delegate = self
             addChoreVC.choresManager = self.choresManager
             addChoreVC.modalPresentationStyle = .overCurrentContext

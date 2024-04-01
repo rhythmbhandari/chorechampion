@@ -12,8 +12,8 @@
 		A411781F2BB90F630046170C /* ChoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A411781E2BB90F630046170C /* ChoreModel.swift */; };
 		A41178252BB9137D0046170C /* UIViewContollerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41178242BB9137D0046170C /* UIViewContollerExtension.swift */; };
 		A41178272BB913F60046170C /* MainControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41178262BB913F60046170C /* MainControllerExtension.swift */; };
-		A411782B2BB93FB90046170C /* AddChoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A411782A2BB93FB90046170C /* AddChoreViewController.swift */; };
-		A411782D2BB944C10046170C /* AddChore.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A411782C2BB944C10046170C /* AddChore.storyboard */; };
+		A411782B2BB93FB90046170C /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A411782A2BB93FB90046170C /* DetailsViewController.swift */; };
+		A411782D2BB944C10046170C /* Details.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A411782C2BB944C10046170C /* Details.storyboard */; };
 		A41178312BBA119C0046170C /* AuthDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41178302BBA119C0046170C /* AuthDelegate.swift */; };
 		A41178332BBA11D70046170C /* ChoresManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41178322BBA11D70046170C /* ChoresManaging.swift */; };
 		A41178352BBA12280046170C /* InMemoryChoresManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41178342BBA12280046170C /* InMemoryChoresManager.swift */; };
@@ -74,8 +74,8 @@
 		A411781E2BB90F630046170C /* ChoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoreModel.swift; sourceTree = "<group>"; };
 		A41178242BB9137D0046170C /* UIViewContollerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewContollerExtension.swift; sourceTree = "<group>"; };
 		A41178262BB913F60046170C /* MainControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainControllerExtension.swift; sourceTree = "<group>"; };
-		A411782A2BB93FB90046170C /* AddChoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddChoreViewController.swift; sourceTree = "<group>"; };
-		A411782C2BB944C10046170C /* AddChore.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddChore.storyboard; sourceTree = "<group>"; };
+		A411782A2BB93FB90046170C /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		A411782C2BB944C10046170C /* Details.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Details.storyboard; sourceTree = "<group>"; };
 		A41178302BBA119C0046170C /* AuthDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDelegate.swift; sourceTree = "<group>"; };
 		A41178322BBA11D70046170C /* ChoresManaging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoresManaging.swift; sourceTree = "<group>"; };
 		A41178342BBA12280046170C /* InMemoryChoresManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryChoresManager.swift; sourceTree = "<group>"; };
@@ -184,7 +184,7 @@
 			children = (
 				A495C8CC2BB3A1800053875E /* Login.storyboard */,
 				A455D9172BB55DC900903E11 /* Main.storyboard */,
-				A411782C2BB944C10046170C /* AddChore.storyboard */,
+				A411782C2BB944C10046170C /* Details.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -194,7 +194,7 @@
 			children = (
 				A455D91F2BB55E7F00903E11 /* MainViewController.swift */,
 				A495C8CA2BB3A1800053875E /* LoginViewController.swift */,
-				A411782A2BB93FB90046170C /* AddChoreViewController.swift */,
+				A411782A2BB93FB90046170C /* DetailsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -353,7 +353,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A411782D2BB944C10046170C /* AddChore.storyboard in Resources */,
+				A411782D2BB944C10046170C /* Details.storyboard in Resources */,
 				A495C8D32BB3A1810053875E /* LaunchScreen.storyboard in Resources */,
 				A455D9182BB55DC900903E11 /* Main.storyboard in Resources */,
 				A455D8C82BB5532100903E11 /* GoogleService-Info.plist in Resources */,
@@ -377,7 +377,7 @@
 				A41178312BBA119C0046170C /* AuthDelegate.swift in Sources */,
 				A41178352BBA12280046170C /* InMemoryChoresManager.swift in Sources */,
 				A4672CE22BB62A640040B503 /* CredentialsModel.swift in Sources */,
-				A411782B2BB93FB90046170C /* AddChoreViewController.swift in Sources */,
+				A411782B2BB93FB90046170C /* DetailsViewController.swift in Sources */,
 				A495C8CB2BB3A1800053875E /* LoginViewController.swift in Sources */,
 				A41178372BBA150F0046170C /* AddChoreDelegate.swift in Sources */,
 				A495C8C72BB3A1800053875E /* AppDelegate.swift in Sources */,

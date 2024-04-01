@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AddChoreViewController: UIViewController {
+class DetailsViewController: UIViewController {
     var choresManager: ChoresManaging?
     var delegate: AddChoreDelegate?
 
