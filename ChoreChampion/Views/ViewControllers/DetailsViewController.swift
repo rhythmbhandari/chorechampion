@@ -121,28 +121,37 @@ class DetailsViewController: UIViewController {
         
         guard let selectedStatusOfChore = ChoreStatus(rawValue: choreStatusSegControl.selectedSegmentIndex - 1 ) else{
             self.showAlert(title: "Status of Chore", message: "Please select a status other than Not Stated.")
-            
             sender.isEnabled = true
             return
         }
         
         if(selectedStatusOfChore == .completed){
-            guard (assigneeTxtField.text?.trimmingCharacters(in: .whitespacesAndNewlines)) != nil else{
+            guard let assigneeTxt = (assigneeTxtField.text?.trimmingCharacters(in: .whitespacesAndNewlines)) else{
+                self.showAlert(title: "Assignee", message: "Please enter who completed this task")
+                sender.isEnabled = true
+                return
+            }
+            if(assigneeTxt.isEmpty){
                 self.showAlert(title: "Assignee", message: "Please enter who completed this task")
                 sender.isEnabled = true
                 return
             }
         }
         
+        guard selectedChoreType != nil else{
+            self.showAlert(title: "Type of Chore", message: "Please choose the type of chore")
+            sender.isEnabled = true
+            return
+        }
         
         
         if let enteredTitle = titleTxtField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
-           let selectedTypeOfChore = selectedChoreType{
+           let choreType = selectedChoreType{
             DispatchQueue.main.async {
                 sender.isEnabled = true
-                print("")
-                self.choresManager?.addChore(Chore(id: UUID().uuidString, title: enteredTitle, status: selectedStatusOfChore, type: selectedTypeOfChore, assignee: self.assigneeTxtField.text?.trimmingCharacters(in: .whitespacesAndNewlines), completionDate: self.choreDatePicker.date, detailsAnnotation: self.annoTxtField.text?.trimmingCharacters(in: .whitespacesAndNewlines)))
-
+                let newChore = Chore(id: UUID().uuidString, title: enteredTitle, status: selectedStatusOfChore, type: choreType, assignee: self.assigneeTxtField.text?.trimmingCharacters(in: .whitespacesAndNewlines), completionDate: self.choreDatePicker.date, detailsAnnotation: self.annoTxtField.text?.trimmingCharacters(in: .whitespacesAndNewlines))
+                
+                self.choresManager?.addChore(newChore)
                 self.dismiss(animated: true) {
                     self.delegate?.choreAdded()
                 }

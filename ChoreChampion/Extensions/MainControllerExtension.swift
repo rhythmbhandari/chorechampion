@@ -19,7 +19,27 @@ extension MainViewController: UITableViewDataSource {
         if let chore = choresManager?.fetchChores()[indexPath.row] {
             var content = cell.defaultContentConfiguration()
             content.text = chore.title
-            content.secondaryText = "\(String(describing: chore.assignee)) completed this at \(String(describing: chore.completionDate))"
+            let isCompleted = chore.status == .completed
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateStyle = .medium
+            dateFormatter.timeStyle = .none
+            dateFormatter.locale = Locale(identifier: "en_US")
+
+            if let assignee = chore.assignee, let date = chore.completionDate {
+                let formattedDate = dateFormatter.string(from: date)
+                if(assignee.isEmpty){
+                    content.secondaryText = "Anticipated to complete at \(String(describing: formattedDate))"
+                }else{
+                    if(isCompleted){
+                        content.secondaryText = "\(String(describing: assignee)) completed this at \(String(describing: formattedDate))"
+                    } else {
+                        content.secondaryText = "\(String(describing: assignee)) will completed this at \(String(describing: formattedDate))"
+                    }
+                }
+            }else {
+                content.secondaryText = "Is a work in progress"
+            }
+            
             content.image = UIImage(systemName: chore.type.icon)
             content.imageProperties.tintColor = chore.status.color
 //            let config = UIImage.SymbolConfiguration(paletteColors: [.systemOrange,  chore.status.color, .quaternarySystemFill,])
