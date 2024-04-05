@@ -23,12 +23,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         Auth.auth().addStateDidChangeListener { (auth, user) in
             let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let loginStoryboard = UIStoryboard(name: "Login", bundle: nil)
             if user != nil {
                 let mainViewController = mainStoryboard.instantiateViewController(withIdentifier: "MainViewController")
                 window.rootViewController = mainViewController
             } else {
-                let loginViewController = loginStoryboard.instantiateViewController(withIdentifier: "LoginViewController")
+                let loginViewController = mainStoryboard.instantiateViewController(withIdentifier: "LoginViewController")
                 window.rootViewController = loginViewController
             }
             window.makeKeyAndVisible()
