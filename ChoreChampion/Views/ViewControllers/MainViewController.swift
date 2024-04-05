@@ -21,6 +21,7 @@ class MainViewController:UIViewController, AddChoreDelegate {
         choresManager = UserDefaultsChoresManager()
 
         choreTable.dataSource = self
+        choreTable.delegate = self
         choreTable.reloadData()
     }
     

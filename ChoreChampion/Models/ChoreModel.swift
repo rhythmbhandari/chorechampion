@@ -92,7 +92,7 @@ enum ChoreType: Int, Codable, CaseIterable {
         case .authentication:
             return "person.fill"
         case .list:
-            return "list.bullet"
+            return "list.bullet.clipboard.fill"
         case .navigation:
             return "arrow.right.square.fill"
         case .networking:
@@ -104,7 +104,7 @@ enum ChoreType: Int, Codable, CaseIterable {
         case .design:
             return "paintbrush.fill"
         case .debugging:
-            return "bug.fill"
+            return "ladybug.fill"
         case .testing:
             return "hammer.fill"
         case .deliverables:
