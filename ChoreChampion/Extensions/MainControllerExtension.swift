@@ -15,7 +15,7 @@ extension MainViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "choreCell", for: indexPath)
-        
+        print("Hehe")
         if let chore = choresManager?.fetchChores()[indexPath.row] {
             var content = cell.defaultContentConfiguration()
             content.text = chore.title
@@ -53,6 +53,10 @@ extension MainViewController: UITableViewDataSource {
 
 extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "choreCell", for: indexPath)
+        print(cell)
+        if let chore = choresManager?.fetchChores()[indexPath.row]{
+            print(chore.title)
+        }
     }
 }

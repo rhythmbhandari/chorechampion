@@ -19,7 +19,7 @@ class MainViewController:UIViewController, AddChoreDelegate {
         authManager = AuthManager(authService: authService)
 //        choresManager = InMemoryChoresManager()
         choresManager = UserDefaultsChoresManager()
-
+        
         choreTable.dataSource = self
         choreTable.delegate = self
         choreTable.reloadData()
