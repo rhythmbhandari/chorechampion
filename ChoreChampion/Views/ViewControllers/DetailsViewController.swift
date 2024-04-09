@@ -33,6 +33,8 @@ class DetailsViewController: UIViewController {
     
     @IBOutlet weak var choreDatePicker: UIDatePicker!
     
+    @IBOutlet weak var deleteBtn: UIBarButtonItem!
+    
     var selectedChoreType: ChoreType?
     
     override func viewDidLoad() {
@@ -53,8 +55,11 @@ class DetailsViewController: UIViewController {
             detailsTitleBar.title = "Update Chore"
             addChoreBtn.setTitle("Update", for: .normal)
             checkAddButtonStatus();
+            
+            deleteBtn.isEnabled = true
         }else{
             configureDatePicker(for: nil, date: nil)
+            deleteBtn.isEnabled = false
         }
         
     }
@@ -176,14 +181,14 @@ class DetailsViewController: UIViewController {
                 sender.isEnabled = true
                 let newChore = Chore(id: UUID().uuidString, title: enteredTitle, status: selectedStatusOfChore, type: choreType, assignee: self.assigneeTxtField.text?.trimmingCharacters(in: .whitespacesAndNewlines), completionDate: self.choreDatePicker.date, detailsAnnotation: self.annoTxtField.text?.trimmingCharacters(in: .whitespacesAndNewlines))
                 
-                if let isSelected = self.selectedChore, let index = self.selectedChoreIndex {
+                if let _ = self.selectedChore, let index = self.selectedChoreIndex {
                     self.choresManager?.updateChore(at: index, chore: newChore)
                 }else{
                     self.choresManager?.addChore(newChore)
                 }
                
                 self.dismiss(animated: true) {
-                    self.delegate?.choreAdded()
+                    self.delegate?.modifyChores()
                 }
             }
         }
@@ -192,7 +197,16 @@ class DetailsViewController: UIViewController {
     @IBAction func onBackButtonPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-        
+    
+    @IBAction func onDeleteBtnPressed(_ sender: Any) {
+        if let index = selectedChoreIndex {
+            self.choresManager?.deleteChore(at: index)
+            self.dismiss(animated: true) {
+                self.delegate?.modifyChores()
+            }
+        }
+    }
+    
     func toggleError(
         value: Bool,
         for errorLabel: UILabel

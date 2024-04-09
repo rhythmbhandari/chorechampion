@@ -46,7 +46,7 @@ class MainViewController:UIViewController, AddChoreDelegate {
         self.performSegue(withIdentifier: "detailsSegue", sender: self)
     }
     
-    func choreAdded() {
+    func modifyChores() {
         DispatchQueue.main.async {
                 self.choreTable.reloadData()
         }

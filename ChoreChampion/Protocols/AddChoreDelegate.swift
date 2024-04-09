@@ -8,5 +8,5 @@
 import Foundation
 
 protocol AddChoreDelegate {
-    func choreAdded()
+    func modifyChores()
 }
