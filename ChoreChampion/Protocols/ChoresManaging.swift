@@ -10,5 +10,6 @@ import Foundation
 protocol ChoresManaging {
     func fetchChores () -> [Chore]
     func addChore(_ chore: Chore)
+    func updateChore(at index: Int, chore: Chore)
     func deleteChore(at index: Int)
 }

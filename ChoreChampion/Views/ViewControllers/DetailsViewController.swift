@@ -11,6 +11,7 @@ class DetailsViewController: UIViewController {
     var choresManager: ChoresManaging?
     var delegate: AddChoreDelegate?
     var selectedChore: Chore?
+    var selectedChoreIndex: Int?
     
     @IBOutlet weak var titleTxtField: UITextField!
     @IBOutlet weak var assigneeTxtField: UITextField!
@@ -50,6 +51,8 @@ class DetailsViewController: UIViewController {
                 typeOfChorePicker.selectRow(selectedIndex, inComponent: 0, animated: false)
                 }
             detailsTitleBar.title = "Update Chore"
+            addChoreBtn.setTitle("Update", for: .normal)
+            checkAddButtonStatus();
         }else{
             configureDatePicker(for: nil, date: nil)
         }
@@ -173,7 +176,12 @@ class DetailsViewController: UIViewController {
                 sender.isEnabled = true
                 let newChore = Chore(id: UUID().uuidString, title: enteredTitle, status: selectedStatusOfChore, type: choreType, assignee: self.assigneeTxtField.text?.trimmingCharacters(in: .whitespacesAndNewlines), completionDate: self.choreDatePicker.date, detailsAnnotation: self.annoTxtField.text?.trimmingCharacters(in: .whitespacesAndNewlines))
                 
-                self.choresManager?.addChore(newChore)
+                if let isSelected = self.selectedChore, let index = self.selectedChoreIndex {
+                    self.choresManager?.updateChore(at: index, chore: newChore)
+                }else{
+                    self.choresManager?.addChore(newChore)
+                }
+               
                 self.dismiss(animated: true) {
                     self.delegate?.choreAdded()
                 }

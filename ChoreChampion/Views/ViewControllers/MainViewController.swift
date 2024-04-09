@@ -11,6 +11,7 @@ class MainViewController:UIViewController, AddChoreDelegate {
     var authManager: AuthManager?
     var choresManager: ChoresManaging?
     var selectedChore: Chore?
+    var selectedChoreIndex: Int?
     
     @IBOutlet weak var choreTable: UITableView!
     
@@ -55,7 +56,7 @@ class MainViewController:UIViewController, AddChoreDelegate {
         if segue.identifier == "detailsSegue" {
             let destination = segue.destination as! DetailsViewController
             destination.selectedChore = selectedChore
-            
+            destination.selectedChoreIndex = selectedChoreIndex
             destination.delegate = self
             destination.choresManager = self.choresManager
         }

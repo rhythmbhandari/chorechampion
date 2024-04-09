@@ -54,6 +54,7 @@ extension MainViewController: UITableViewDelegate {
 //        _ = tableView.dequeueReusableCell(withIdentifier: "choreCell", for: indexPath)
         if let chore = choresManager?.fetchChores()[indexPath.row]{
             selectedChore = chore
+            selectedChoreIndex = indexPath.row
             self.performSegue(withIdentifier: "detailsSegue", sender: self)
         }
     }
