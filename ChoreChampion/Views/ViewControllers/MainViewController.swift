@@ -10,6 +10,7 @@ import UIKit
 class MainViewController:UIViewController, AddChoreDelegate {
     var authManager: AuthManager?
     var choresManager: ChoresManaging?
+    var selectedChore: Chore?
     
     @IBOutlet weak var choreTable: UITableView!
     
@@ -39,6 +40,7 @@ class MainViewController:UIViewController, AddChoreDelegate {
     }
     
     @IBAction func onAddButtonPressed(_ sender: Any) {
+        selectedChore = nil
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let addChoreVC = storyboard.instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController {            
             addChoreVC.delegate = self

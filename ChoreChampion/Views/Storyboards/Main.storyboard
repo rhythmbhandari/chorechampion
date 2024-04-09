@@ -73,6 +73,7 @@
                     </view>
                     <connections>
                         <outlet property="choreTable" destination="W8X-qE-kli" id="gcx-ru-qf5"/>
+                        <segue destination="2sw-MS-NEG" kind="show" identifier="detailsSegue" id="SwI-e5-3lg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -230,60 +231,60 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m2r-TD-bpg" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1027" y="85"/>
+            <point key="canvasLocation" x="-824" y="79"/>
         </scene>
         <!--Details View Controller-->
         <scene sceneID="YMP-wU-V5l">
             <objects>
                 <viewController storyboardIdentifier="DetailsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2sw-MS-NEG" customClass="DetailsViewController" customModule="ChoreChampion" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7zN-OK-ebu">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pon-a0-6HB">
-                                <rect key="frame" x="0.0" y="44" width="393" height="808"/>
+                                <rect key="frame" x="0.0" y="44" width="393" height="798"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nzt-AJ-Bbb">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="764"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="776"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name of Chore" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kpc-7Q-MLq">
-                                                <rect key="frame" x="20" y="61.999999999999993" width="353" height="20.666666666666664"/>
+                                                <rect key="frame" x="20" y="74" width="353" height="20.666666666666671"/>
                                                 <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status of Chore" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WRM-bj-qAk">
-                                                <rect key="frame" x="20" y="165" width="353" height="20.666666666666657"/>
+                                                <rect key="frame" x="20" y="177" width="353" height="20.666666666666657"/>
                                                 <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Assignee" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Crc-Jq-88t">
-                                                <rect key="frame" x="20" y="265" width="353" height="20.666666666666686"/>
+                                                <rect key="frame" x="20" y="277" width="353" height="20.666666666666686"/>
                                                 <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type of Chore" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pc8-ag-3Qy">
-                                                <rect key="frame" x="20" y="436" width="353" height="20.666666666666686"/>
+                                                <rect key="frame" x="20" y="448" width="353" height="20.666666666666686"/>
                                                 <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter your chore title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bB2-d1-HXd">
-                                                <rect key="frame" x="20" y="132.66666666666666" width="353" height="16.333333333333343"/>
+                                                <rect key="frame" x="20" y="144.66666666666666" width="353" height="16.333333333333343"/>
                                                 <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="14"/>
                                                 <color key="textColor" systemColor="systemRedColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please select a status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XL3-WU-Bqp">
-                                                <rect key="frame" x="20" y="232.66666666666669" width="353" height="16.333333333333343"/>
+                                                <rect key="frame" x="20" y="244.66666666666669" width="353" height="16.333333333333314"/>
                                                 <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="14"/>
                                                 <color key="textColor" systemColor="systemRedColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter chore name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tfe-Dc-LjK">
-                                                <rect key="frame" x="20" y="90.666666666666657" width="353" height="34"/>
+                                                <rect key="frame" x="20" y="102.66666666666666" width="353" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
@@ -291,7 +292,7 @@
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter who worked on this chore" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ctf-nB-4yS">
-                                                <rect key="frame" x="20" y="293.66666666666669" width="353" height="34"/>
+                                                <rect key="frame" x="20" y="305.66666666666669" width="353" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
@@ -299,13 +300,13 @@
                                                 </connections>
                                             </textField>
                                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter who completed this chore" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bvm-n5-Nmm">
-                                                <rect key="frame" x="20" y="335.66666666666669" width="353" height="16.333333333333314"/>
+                                                <rect key="frame" x="20" y="347.66666666666669" width="353" height="16.333333333333314"/>
                                                 <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="14"/>
                                                 <color key="textColor" systemColor="systemRedColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="YAP-vU-A75">
-                                                <rect key="frame" x="20" y="193.66666666666666" width="353" height="32"/>
+                                                <rect key="frame" x="20" y="205.66666666666666" width="353" height="32"/>
                                                 <segments>
                                                     <segment title="Not Stated"/>
                                                     <segment title="Not Started"/>
@@ -318,7 +319,7 @@
                                                 </connections>
                                             </segmentedControl>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="31" translatesAutoresizingMaskIntoConstraints="NO" id="Oar-bb-XyZ">
-                                                <rect key="frame" x="20" y="370" width="353" height="50"/>
+                                                <rect key="frame" x="20" y="382" width="353" height="50"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TE6-LB-jdN">
                                                         <rect key="frame" x="0.0" y="0.0" width="37.666666666666664" height="50"/>
@@ -332,7 +333,7 @@
                                                 </subviews>
                                             </stackView>
                                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5qC-Nm-HHl">
-                                                <rect key="frame" x="8" y="-2" width="377" height="44"/>
+                                                <rect key="frame" x="8" y="-2" width="377" height="56"/>
                                                 <items>
                                                     <navigationItem title="Add New Chore" id="cRX-IU-ZN0">
                                                         <barButtonItem key="leftBarButtonItem" title="Back Button" image="arrowshape.backward.circle.fill" catalog="system" id="xxr-Eh-aYR">
@@ -345,14 +346,14 @@
                                                 </items>
                                             </navigationBar>
                                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LEH-Jl-23W">
-                                                <rect key="frame" x="20" y="472.66666666666663" width="353" height="150"/>
+                                                <rect key="frame" x="20" y="484.66666666666663" width="353" height="150"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="150" id="AhH-ST-ba6"/>
                                                     <constraint firstAttribute="height" constant="150" id="dq2-3k-9Kk"/>
                                                 </constraints>
                                             </pickerView>
                                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Crm-ao-O2T">
-                                                <rect key="frame" x="20" y="723.33333333333337" width="353" height="34.333333333333371"/>
+                                                <rect key="frame" x="20" y="735.33333333333337" width="353" height="34.333333333333371"/>
                                                 <color key="tintColor" red="0.21960784310000001" green="0.69019607839999997" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="Add"/>
@@ -361,12 +362,12 @@
                                                 </connections>
                                             </button>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter any additional information" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e6I-ua-y6L">
-                                                <rect key="frame" x="20" y="659.33333333333337" width="353" height="34"/>
+                                                <rect key="frame" x="20" y="671.33333333333337" width="353" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Annotation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q20-H8-Efh">
-                                                <rect key="frame" x="20" y="630.66666666666663" width="353" height="20.666666666666629"/>
+                                                <rect key="frame" x="20" y="642.66666666666663" width="353" height="20.666666666666629"/>
                                                 <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -446,6 +447,7 @@
                             <constraint firstAttribute="bottom" secondItem="Pon-a0-6HB" secondAttribute="bottom" id="nd1-Zm-fIc"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="0Xr-io-JqP"/>
                     <connections>
                         <outlet property="addChoreBtn" destination="Crm-ao-O2T" id="hMC-Fh-ggv"/>
                         <outlet property="annoTxtField" destination="e6I-ua-y6L" id="xRl-bB-Az8"/>
@@ -473,10 +475,10 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemTealColor">
-            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.18823529410000001" green="0.69019607839999997" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

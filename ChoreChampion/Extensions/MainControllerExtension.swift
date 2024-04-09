@@ -53,10 +53,17 @@ extension MainViewController: UITableViewDataSource {
 
 extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "choreCell", for: indexPath)
-        print(cell)
+//        _ = tableView.dequeueReusableCell(withIdentifier: "choreCell", for: indexPath)
         if let chore = choresManager?.fetchChores()[indexPath.row]{
-            print(chore.title)
+            selectedChore = chore
+            self.performSegue(withIdentifier: "detailsSegue", sender: self)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "detailsSegue" {
+            let destination = segue.destination as! DetailsViewController
+            destination.selectedChore = selectedChore
         }
     }
 }

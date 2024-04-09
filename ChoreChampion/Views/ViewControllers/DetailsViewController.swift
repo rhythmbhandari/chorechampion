@@ -1,8 +1,8 @@
 //
-//  AddChoreViewController.swift
+//  DetailsViewController.swift
 //  ChoreChampion
 //
-//  Created by Rhythm Bhandari on 3/31/24.
+//  Created by Rhythm Bhandari on 4/8/24.
 //
 
 import UIKit
@@ -10,7 +10,8 @@ import UIKit
 class DetailsViewController: UIViewController {
     var choresManager: ChoresManaging?
     var delegate: AddChoreDelegate?
-
+    var selectedChore: Chore?
+    
     @IBOutlet weak var titleTxtField: UITextField!
     @IBOutlet weak var assigneeTxtField: UITextField!
     @IBOutlet weak var annoTxtField: UITextField!
@@ -37,6 +38,11 @@ class DetailsViewController: UIViewController {
         typeOfChorePicker.delegate = self
         typeOfChorePicker.dataSource = self
         configureDatePicker(for: nil)
+        if(selectedChore != nil){
+            print("Something is sent")
+        }else{
+            print("Nothing is sent")
+        }
     }
     
     @IBAction func onStatusOfChoreChanged(_ sender: UISegmentedControl) {
@@ -174,7 +180,5 @@ class DetailsViewController: UIViewController {
     func checkAddButtonStatus() {
         addChoreBtn.isEnabled = !titleTxtField.text!.isEmpty
     }
-    
-    
-}
 
+}

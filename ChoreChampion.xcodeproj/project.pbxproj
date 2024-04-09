@@ -12,7 +12,6 @@
 		A411781F2BB90F630046170C /* ChoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A411781E2BB90F630046170C /* ChoreModel.swift */; };
 		A41178252BB9137D0046170C /* UIViewContollerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41178242BB9137D0046170C /* UIViewContollerExtension.swift */; };
 		A41178272BB913F60046170C /* MainControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41178262BB913F60046170C /* MainControllerExtension.swift */; };
-		A411782B2BB93FB90046170C /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A411782A2BB93FB90046170C /* DetailsViewController.swift */; };
 		A41178312BBA119C0046170C /* AuthDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41178302BBA119C0046170C /* AuthDelegate.swift */; };
 		A41178332BBA11D70046170C /* ChoresManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41178322BBA11D70046170C /* ChoresManaging.swift */; };
 		A41178352BBA12280046170C /* InMemoryChoresManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41178342BBA12280046170C /* InMemoryChoresManager.swift */; };
@@ -65,6 +64,7 @@
 		A495C8CB2BB3A1800053875E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A495C8CA2BB3A1800053875E /* LoginViewController.swift */; };
 		A495C8D02BB3A1810053875E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A495C8CF2BB3A1810053875E /* Assets.xcassets */; };
 		A495C8D32BB3A1810053875E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A495C8D12BB3A1810053875E /* LaunchScreen.storyboard */; };
+		A4A53F012BC4DF0300A852F8 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A53F002BC4DF0300A852F8 /* DetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,7 +73,6 @@
 		A411781E2BB90F630046170C /* ChoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoreModel.swift; sourceTree = "<group>"; };
 		A41178242BB9137D0046170C /* UIViewContollerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewContollerExtension.swift; sourceTree = "<group>"; };
 		A41178262BB913F60046170C /* MainControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainControllerExtension.swift; sourceTree = "<group>"; };
-		A411782A2BB93FB90046170C /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		A41178302BBA119C0046170C /* AuthDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDelegate.swift; sourceTree = "<group>"; };
 		A41178322BBA11D70046170C /* ChoresManaging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoresManaging.swift; sourceTree = "<group>"; };
 		A41178342BBA12280046170C /* InMemoryChoresManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryChoresManager.swift; sourceTree = "<group>"; };
@@ -91,6 +90,7 @@
 		A495C8CF2BB3A1810053875E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A495C8D22BB3A1810053875E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A495C8D42BB3A1810053875E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A4A53F002BC4DF0300A852F8 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,7 +191,7 @@
 			children = (
 				A455D91F2BB55E7F00903E11 /* MainViewController.swift */,
 				A495C8CA2BB3A1800053875E /* LoginViewController.swift */,
-				A411782A2BB93FB90046170C /* DetailsViewController.swift */,
+				A4A53F002BC4DF0300A852F8 /* DetailsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -372,10 +372,10 @@
 				A41178312BBA119C0046170C /* AuthDelegate.swift in Sources */,
 				A41178352BBA12280046170C /* InMemoryChoresManager.swift in Sources */,
 				A4672CE22BB62A640040B503 /* CredentialsModel.swift in Sources */,
-				A411782B2BB93FB90046170C /* DetailsViewController.swift in Sources */,
 				A495C8CB2BB3A1800053875E /* LoginViewController.swift in Sources */,
 				A41178372BBA150F0046170C /* AddChoreDelegate.swift in Sources */,
 				A495C8C72BB3A1800053875E /* AppDelegate.swift in Sources */,
+				A4A53F012BC4DF0300A852F8 /* DetailsViewController.swift in Sources */,
 				A42E279C2BBB529100281868 /* DetailsControllerExtension.swift in Sources */,
 				A495C8C92BB3A1800053875E /* SceneDelegate.swift in Sources */,
 				A455D9202BB55E7F00903E11 /* MainViewController.swift in Sources */,
