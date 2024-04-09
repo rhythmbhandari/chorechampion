@@ -33,7 +33,7 @@ extension MainViewController: UITableViewDataSource {
                     if(isCompleted){
                         content.secondaryText = "\(String(describing: assignee)) completed this at \(String(describing: formattedDate))"
                     } else {
-                        content.secondaryText = "\(String(describing: assignee)) will completed this at \(String(describing: formattedDate))"
+                        content.secondaryText = "\(String(describing: assignee)) will complete this at \(String(describing: formattedDate))"
                     }
                 }
             }else {
@@ -42,8 +42,6 @@ extension MainViewController: UITableViewDataSource {
             
             content.image = UIImage(systemName: chore.type.icon)
             content.imageProperties.tintColor = chore.status.color
-//            let config = UIImage.SymbolConfiguration(paletteColors: [.systemOrange,  chore.status.color, .quaternarySystemFill,])
-//            content.imageProperties.preferredSymbolConfiguration = config
             cell.contentConfiguration = content
         }
 
@@ -57,13 +55,6 @@ extension MainViewController: UITableViewDelegate {
         if let chore = choresManager?.fetchChores()[indexPath.row]{
             selectedChore = chore
             self.performSegue(withIdentifier: "detailsSegue", sender: self)
-        }
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "detailsSegue" {
-            let destination = segue.destination as! DetailsViewController
-            destination.selectedChore = selectedChore
         }
     }
 }

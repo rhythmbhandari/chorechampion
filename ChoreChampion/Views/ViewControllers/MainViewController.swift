@@ -24,6 +24,7 @@ class MainViewController:UIViewController, AddChoreDelegate {
         choreTable.dataSource = self
         choreTable.delegate = self
         choreTable.reloadData()
+        
     }
     
     
@@ -41,18 +42,22 @@ class MainViewController:UIViewController, AddChoreDelegate {
     
     @IBAction func onAddButtonPressed(_ sender: Any) {
         selectedChore = nil
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        if let addChoreVC = storyboard.instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController {            
-            addChoreVC.delegate = self
-            addChoreVC.choresManager = self.choresManager
-            addChoreVC.modalPresentationStyle = .overCurrentContext
-            present(addChoreVC, animated: true, completion: nil)
-        }
+        self.performSegue(withIdentifier: "detailsSegue", sender: self)
     }
     
     func choreAdded() {
         DispatchQueue.main.async {
                 self.choreTable.reloadData()
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "detailsSegue" {
+            let destination = segue.destination as! DetailsViewController
+            destination.selectedChore = selectedChore
+            
+            destination.delegate = self
+            destination.choresManager = self.choresManager
         }
     }
 }

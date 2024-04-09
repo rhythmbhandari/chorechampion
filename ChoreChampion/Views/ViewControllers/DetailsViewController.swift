@@ -22,6 +22,8 @@ class DetailsViewController: UIViewController {
     
     @IBOutlet weak var dateLabel: UILabel!
     
+    @IBOutlet weak var detailsTitleBar: UINavigationItem!
+    
     @IBOutlet weak var typeOfChorePicker: UIPickerView!
     
     @IBOutlet weak var choreStatusSegControl: UISegmentedControl!
@@ -37,19 +39,28 @@ class DetailsViewController: UIViewController {
         
         typeOfChorePicker.delegate = self
         typeOfChorePicker.dataSource = self
-        configureDatePicker(for: nil)
-        if(selectedChore != nil){
-            print("Something is sent")
+        if let selectedChore = selectedChore {
+            titleTxtField.text = selectedChore.title
+            assigneeTxtField.text = selectedChore.assignee
+            choreStatusSegControl.selectedSegmentIndex = selectedChore.status.rawValue + 1
+            selectedChoreType = selectedChore.type
+            annoTxtField.text = selectedChore.detailsAnnotation
+            configureDatePicker(for: selectedChore.status, date: selectedChore.completionDate)
+            if let selectedChoreType = selectedChoreType, let selectedIndex = ChoreType.allCases.firstIndex(of: selectedChoreType) {
+                typeOfChorePicker.selectRow(selectedIndex, inComponent: 0, animated: false)
+                }
+            detailsTitleBar.title = "Update Chore"
         }else{
-            print("Nothing is sent")
+            configureDatePicker(for: nil, date: nil)
         }
+        
     }
     
     @IBAction func onStatusOfChoreChanged(_ sender: UISegmentedControl) {
         
         guard let type = ChoreStatus(rawValue: sender.selectedSegmentIndex - 1) else{
             dateLabel.text = "Date"
-            configureDatePicker(for: nil)
+            configureDatePicker(for: nil, date: nil)
             return
         }
         
@@ -59,11 +70,12 @@ class DetailsViewController: UIViewController {
         default:
             dateLabel.text = "Anticipated Date"
         }
-        configureDatePicker(for: type)
+        configureDatePicker(for: type, date: nil)
     }
     
-    func configureDatePicker(for status: ChoreStatus?) {
+    func configureDatePicker(for status: ChoreStatus?, date: Date?) {
         let currentDate = Date()
+        
         let calendar = Calendar.current
         choreDatePicker.datePickerMode = .date
 
@@ -82,6 +94,10 @@ class DetailsViewController: UIViewController {
         default:
             choreDatePicker.minimumDate = currentDate
             choreDatePicker.maximumDate = calendar.date(byAdding: .year, value: 1, to: currentDate)
+        }
+        
+        if let datePicked = date {
+            choreDatePicker.date = datePicked
         }
         
     }

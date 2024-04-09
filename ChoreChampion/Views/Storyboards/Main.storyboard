@@ -456,6 +456,7 @@
                         <outlet property="choreDatePicker" destination="WG6-ch-RUh" id="VxX-1A-UHW"/>
                         <outlet property="choreStatusSegControl" destination="YAP-vU-A75" id="N1W-l5-g8m"/>
                         <outlet property="dateLabel" destination="TE6-LB-jdN" id="GEw-eX-MGa"/>
+                        <outlet property="detailsTitleBar" destination="cRX-IU-ZN0" id="dhi-3r-xTi"/>
                         <outlet property="statusOfChoreErrLabel" destination="XL3-WU-Bqp" id="2wU-IM-7HS"/>
                         <outlet property="titleErrLabel" destination="bB2-d1-HXd" id="HcR-pI-HqH"/>
                         <outlet property="titleTxtField" destination="tfe-Dc-LjK" id="DYd-iq-DHv"/>
