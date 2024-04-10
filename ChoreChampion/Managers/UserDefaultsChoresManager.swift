@@ -26,15 +26,22 @@ class UserDefaultsChoresManager: ChoresManaging {
     }
     
     func addChores(_ newChores: [Chore]) {
-            var chores: [Chore] = []
-            chores.append(contentsOf: newChores)
-            
-            do {
-                let encodedChores = try JSONEncoder().encode(chores)
-                userDefaults.set(encodedChores, forKey: choresKey)
-            } catch {
-                print("Error encoding chores data: \(error)")
+        var existingChores = fetchChores()
+        
+        for newChore in newChores {
+            if let index = existingChores.firstIndex(where: { $0.id == newChore.id }) {
+                existingChores[index] = newChore
+            } else {
+                existingChores.append(newChore)
             }
+        }
+        
+        do {
+            let encodedChores = try JSONEncoder().encode(existingChores)
+            userDefaults.set(encodedChores, forKey: choresKey)
+        } catch {
+            print("Error encoding chores data: \(error)")
+        }
     }
     
     func addChore(_ chore: Chore) {
