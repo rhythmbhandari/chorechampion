@@ -21,7 +21,14 @@ class MainViewController:UIViewController, AddChoreDelegate {
         authManager = AuthManager(authService: authService)
 //        choresManager = InMemoryChoresManager()
         choresManager = UserDefaultsChoresManager()
-        
+        authManager?.getToken { result in
+                switch result {
+                case .success(let token):
+                    print("User token: \(token)")
+                case .failure(let error):
+                    print("Error fetching user token: \(error)")
+                }
+            }
         choreTable.dataSource = self
         choreTable.delegate = self
         choreTable.reloadData()

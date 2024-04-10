@@ -21,4 +21,8 @@ class AuthManager {
     func signOut(completion: @escaping (Result<Void, Error>) -> Void) {
         authService.signOut(completion: completion)
     }
+    
+    func getToken(completion: @escaping (Result<String, Error>) -> Void) {
+            authService.getToken(completion: completion)
+    }
 }
