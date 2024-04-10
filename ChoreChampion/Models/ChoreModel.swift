@@ -15,7 +15,6 @@ struct Chore: Codable {
     let type: ChoreType
     let assignee: String?
     let completionDate: Date?
-    let detailsAnnotation: String?
 }
 
 enum ChoreStatus: Int, Codable {

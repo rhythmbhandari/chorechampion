@@ -15,7 +15,6 @@ class DetailsViewController: UIViewController {
     
     @IBOutlet weak var titleTxtField: UITextField!
     @IBOutlet weak var assigneeTxtField: UITextField!
-    @IBOutlet weak var annoTxtField: UITextField!
     
     @IBOutlet weak var titleErrLabel: UILabel!
     @IBOutlet weak var assigneeErrLabel: UILabel!
@@ -47,7 +46,6 @@ class DetailsViewController: UIViewController {
             assigneeTxtField.text = selectedChore.assignee
             choreStatusSegControl.selectedSegmentIndex = selectedChore.status.rawValue + 1
             selectedChoreType = selectedChore.type
-            annoTxtField.text = selectedChore.detailsAnnotation
             configureDatePicker(for: selectedChore.status, date: selectedChore.completionDate)
             if let selectedChoreType = selectedChoreType, let selectedIndex = ChoreType.allCases.firstIndex(of: selectedChoreType) {
                 typeOfChorePicker.selectRow(selectedIndex, inComponent: 0, animated: false)
@@ -179,7 +177,7 @@ class DetailsViewController: UIViewController {
            let choreType = selectedChoreType{
             DispatchQueue.main.async {
                 sender.isEnabled = true
-                let newChore = Chore(id: UUID().uuidString, title: enteredTitle, status: selectedStatusOfChore, type: choreType, assignee: self.assigneeTxtField.text?.trimmingCharacters(in: .whitespacesAndNewlines), completionDate: self.choreDatePicker.date, detailsAnnotation: self.annoTxtField.text?.trimmingCharacters(in: .whitespacesAndNewlines))
+                let newChore = Chore(id: UUID().uuidString, title: enteredTitle, status: selectedStatusOfChore, type: choreType, assignee: self.assigneeTxtField.text?.trimmingCharacters(in: .whitespacesAndNewlines), completionDate: self.choreDatePicker.date)
                 
                 if let _ = self.selectedChore, let index = self.selectedChoreIndex {
                     self.choresManager?.updateChore(at: index, chore: newChore)
