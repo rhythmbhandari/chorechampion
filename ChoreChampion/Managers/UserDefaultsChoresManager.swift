@@ -25,6 +25,18 @@ class UserDefaultsChoresManager: ChoresManaging {
         }
     }
     
+    func addChores(_ newChores: [Chore]) {
+            var chores: [Chore] = []
+            chores.append(contentsOf: newChores)
+            
+            do {
+                let encodedChores = try JSONEncoder().encode(chores)
+                userDefaults.set(encodedChores, forKey: choresKey)
+            } catch {
+                print("Error encoding chores data: \(error)")
+            }
+    }
+    
     func addChore(_ chore: Chore) {
         var chores = fetchChores()
         chores.append(chore)

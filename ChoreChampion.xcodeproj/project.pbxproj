@@ -65,6 +65,8 @@
 		A495C8D32BB3A1810053875E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A495C8D12BB3A1810053875E /* LaunchScreen.storyboard */; };
 		A4A53F012BC4DF0300A852F8 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A53F002BC4DF0300A852F8 /* DetailsViewController.swift */; };
 		A4F555A92BC6355D00F19615 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A4F555A82BC6355D00F19615 /* GoogleService-Info.plist */; };
+		A4F555B52BC6689E00F19615 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F555B42BC6689E00F19615 /* NetworkManager.swift */; };
+		A4F555B72BC674B600F19615 /* ResponseChoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F555B62BC674B600F19615 /* ResponseChoreModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,6 +93,8 @@
 		A495C8D42BB3A1810053875E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A4A53F002BC4DF0300A852F8 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		A4F555A82BC6355D00F19615 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A4F555B42BC6689E00F19615 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		A4F555B62BC674B600F19615 /* ResponseChoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseChoreModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +159,7 @@
 				A41178192BB90A390046170C /* AuthManager.swift */,
 				A41178342BBA12280046170C /* InMemoryChoresManager.swift */,
 				A41178382BBA1ADD0046170C /* UserDefaultsChoresManager.swift */,
+				A4F555B42BC6689E00F19615 /* NetworkManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -201,6 +206,7 @@
 			children = (
 				A4672CE12BB62A640040B503 /* CredentialsModel.swift */,
 				A411781E2BB90F630046170C /* ChoreModel.swift */,
+				A4F555B62BC674B600F19615 /* ResponseChoreModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -364,6 +370,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4F555B72BC674B600F19615 /* ResponseChoreModel.swift in Sources */,
+				A4F555B52BC6689E00F19615 /* NetworkManager.swift in Sources */,
 				A41178392BBA1ADD0046170C /* UserDefaultsChoresManager.swift in Sources */,
 				A41178252BB9137D0046170C /* UIViewContollerExtension.swift in Sources */,
 				A41178272BB913F60046170C /* MainControllerExtension.swift in Sources */,

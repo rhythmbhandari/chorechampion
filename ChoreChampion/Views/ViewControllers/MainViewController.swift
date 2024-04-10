@@ -17,24 +17,49 @@ class MainViewController:UIViewController, AddChoreDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let authService = FirebaseAuthenticationService()
-        authManager = AuthManager(authService: authService)
-//        choresManager = InMemoryChoresManager()
-        choresManager = UserDefaultsChoresManager()
-        authManager?.getToken { result in
-                switch result {
-                case .success(let token):
-                    print("User token: \(token)")
-                case .failure(let error):
-                    print("Error fetching user token: \(error)")
-                }
-            }
-        choreTable.dataSource = self
-        choreTable.delegate = self
-        choreTable.reloadData()
-        
+        setupAuthentication()
+        setupTableView()
     }
     
+    private func setupAuthentication() {
+        let authService = FirebaseAuthenticationService()
+        authManager = AuthManager(authService: authService)
+        choresManager = UserDefaultsChoresManager()
+        authManager?.getToken { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let token):
+                self.fetchChores(with: token)
+            case .failure(let error):
+                print("Error fetching user token: \(error)")
+            }
+        }
+    }
+    
+    private func fetchChores(with authToken: String) {
+        NetworkManager.fetchChores(authToken: authToken)
+        { chores, error in
+            if let error = error {
+                print("Error fetching chores: \(error)")
+            } else if let chores = chores {
+                self.addFetchedChores(chores)
+                self.modifyChores()
+            }
+        }
+
+    }
+    
+    private func addFetchedChores(_ chores: [Chore]) {
+        choresManager?.addChores(chores)
+        for chore in chores {
+            print(chore)
+        }
+    }
+    
+    private func setupTableView() {
+        choreTable.dataSource = self
+        choreTable.delegate = self
+    }
     
     @IBAction func onLogoutPressed(_ sender: UIButton) {
         authManager?.signOut { result in
@@ -55,7 +80,7 @@ class MainViewController:UIViewController, AddChoreDelegate {
     
     func modifyChores() {
         DispatchQueue.main.async {
-                self.choreTable.reloadData()
+            self.choreTable.reloadData()
         }
     }
     

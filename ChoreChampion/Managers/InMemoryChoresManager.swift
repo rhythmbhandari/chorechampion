@@ -8,6 +8,10 @@
 import Foundation
 
 class InMemoryChoresManager: ChoresManaging {
+    func addChores(_ chores: [Chore]) {
+        
+    }
+    
     func updateChore(at index: Int, chore: Chore) {
         
     }

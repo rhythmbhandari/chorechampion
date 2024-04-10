@@ -84,23 +84,9 @@ class DetailsViewController: UIViewController {
         
         let calendar = Calendar.current
         choreDatePicker.datePickerMode = .date
-
-        guard let status = status else {
-//            choreDatePicker.isEnabled = false
-            return
-        }
         
-//        choreDatePicker.isEnabled = true
-        
-        switch status {
-        case .completed:
-            choreDatePicker.maximumDate = currentDate
-            choreDatePicker.minimumDate = calendar.date(byAdding: .year, value: -1, to: currentDate)
-            
-        default:
-            choreDatePicker.minimumDate = currentDate
-            choreDatePicker.maximumDate = calendar.date(byAdding: .year, value: 1, to: currentDate)
-        }
+        choreDatePicker.minimumDate = calendar.date(byAdding: .year, value: -1, to: currentDate)
+        choreDatePicker.maximumDate = calendar.date(byAdding: .year, value: 1, to: currentDate)
         
         if let datePicked = date {
             choreDatePicker.date = datePicked
