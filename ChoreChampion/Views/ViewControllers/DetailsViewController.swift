@@ -13,6 +13,7 @@ class DetailsViewController: UIViewController {
     var selectedChore: Chore?
     var selectedChoreIndex: Int?
     var authManager: AuthManager?
+    var currentId: String?
     
     @IBOutlet weak var titleTxtField: UITextField!
     @IBOutlet weak var assigneeTxtField: UITextField!
@@ -159,27 +160,15 @@ class DetailsViewController: UIViewController {
             return
         }
         
-        guard let choreType = selectedChoreType else {
-                self.showAlert(title: "Type of Chore", message: "Please choose the type of chore")
-                sender.isEnabled = true
-                return
-            }
-
-        guard let enteredTitle = titleTxtField.text?.trimmingCharacters(in: .whitespacesAndNewlines) else {
-                return
-            }
-        
-        let newChore = Chore(id: UUID().uuidString, title: enteredTitle, status: selectedStatusOfChore, type: choreType, assignee: self.assigneeTxtField.text?.trimmingCharacters(in: .whitespacesAndNewlines), completionDate: self.choreDatePicker.date)
-        
         if let enteredTitle = titleTxtField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
            let choreType = selectedChoreType{
             DispatchQueue.main.async {
                 sender.isEnabled = true
-                let newChore = Chore(id: UUID().uuidString, title: enteredTitle, status: selectedStatusOfChore, type: choreType, assignee: self.assigneeTxtField.text?.trimmingCharacters(in: .whitespacesAndNewlines), completionDate: self.choreDatePicker.date)
-                
-                if let _ = self.selectedChore, let index = self.selectedChoreIndex {
+                if let selectedChore = self.selectedChore, let index = self.selectedChoreIndex {
+                    let newChore = Chore(id: selectedChore.id, title: enteredTitle, status: selectedStatusOfChore, type: choreType, assignee: self.assigneeTxtField.text?.trimmingCharacters(in: .whitespacesAndNewlines), completionDate: self.choreDatePicker.date)
                     self.choresManager?.updateChore(at: index, chore: newChore)
                 }else{
+                    let newChore = Chore(id: UUID().uuidString, title: enteredTitle, status: selectedStatusOfChore, type: choreType, assignee: self.assigneeTxtField.text?.trimmingCharacters(in: .whitespacesAndNewlines), completionDate: self.choreDatePicker.date)
                     self.choresManager?.addChore(newChore)
                 }
                
