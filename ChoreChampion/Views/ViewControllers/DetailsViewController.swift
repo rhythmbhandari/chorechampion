@@ -12,6 +12,7 @@ class DetailsViewController: UIViewController {
     var delegate: AddChoreDelegate?
     var selectedChore: Chore?
     var selectedChoreIndex: Int?
+    var authManager: AuthManager?
     
     @IBOutlet weak var titleTxtField: UITextField!
     @IBOutlet weak var assigneeTxtField: UITextField!
@@ -158,6 +159,17 @@ class DetailsViewController: UIViewController {
             return
         }
         
+        guard let choreType = selectedChoreType else {
+                self.showAlert(title: "Type of Chore", message: "Please choose the type of chore")
+                sender.isEnabled = true
+                return
+            }
+
+        guard let enteredTitle = titleTxtField.text?.trimmingCharacters(in: .whitespacesAndNewlines) else {
+                return
+            }
+        
+        let newChore = Chore(id: UUID().uuidString, title: enteredTitle, status: selectedStatusOfChore, type: choreType, assignee: self.assigneeTxtField.text?.trimmingCharacters(in: .whitespacesAndNewlines), completionDate: self.choreDatePicker.date)
         
         if let enteredTitle = titleTxtField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
            let choreType = selectedChoreType{
@@ -177,6 +189,8 @@ class DetailsViewController: UIViewController {
             }
         }
     }
+    
+    
     
     @IBAction func onBackButtonPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
@@ -204,3 +218,50 @@ class DetailsViewController: UIViewController {
     }
 
 }
+
+
+
+/*
+Code to add Chore to API
+ 
+ if let _ = self.selectedChore, let index = self.selectedChoreIndex {
+                    self.choresManager?.updateChore(at: index, chore: newChore)
+                }else{
+                 addChore(newChore)
+                }
+ 
+ func addChore(_ chore: Chore) {
+     authManager?.getToken { [weak self] result in
+         guard let self = self else { return }
+         switch result {
+         case .success(let token):
+             
+//                print("New Token is \(token)")
+             NetworkManager.addTask(authToken: token, task: convertChoreToAPITask(chore)) { error in
+                 DispatchQueue.main.async {
+                     if let error = error {
+                         self.showAlert(title: "Error", message: "Failed to add chore: \(error.localizedDescription)")
+                     } else {
+                         self.choresManager?.addChore(chore)
+                         self.dismiss(animated: true) {
+                             self.delegate?.modifyChores()
+                         }
+                     }
+                 }
+             }
+             
+         case .failure(let error):
+             print("Error fetching user token: \(error)")
+         }
+     }
+
+     
+ }
+ 
+ func convertChoreToAPITask(_ chore: Chore) -> ResponseChore {
+     let dateFormatter = DateFormatter()
+     dateFormatter.dateFormat = "yyyy-MM-dd"
+
+     return ResponseChore(assignee: chore.assignee, dateCompleted: dateFormatter.string(from: chore.completionDate ?? Date()), name: chore.title, status: chore.status.rawValue, taskType: chore.type.rawValue + 1)
+ }
+ */

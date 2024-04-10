@@ -29,6 +29,7 @@ class MainViewController:UIViewController, AddChoreDelegate {
             guard let self = self else { return }
             switch result {
             case .success(let token):
+                print("Token is \(token)")
                 self.fetchChores(with: token)
             case .failure(let error):
                 print("Error fetching user token: \(error)")
@@ -91,6 +92,7 @@ class MainViewController:UIViewController, AddChoreDelegate {
             destination.selectedChoreIndex = selectedChoreIndex
             destination.delegate = self
             destination.choresManager = self.choresManager
+            destination.authManager = self.authManager
         }
     }
 }

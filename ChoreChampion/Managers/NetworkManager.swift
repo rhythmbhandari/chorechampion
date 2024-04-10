@@ -47,6 +47,44 @@ class NetworkManager {
         task.resume()
     }
     
+    static func addTask(authToken: String, task: ResponseChore, completion: @escaping (Error?) -> Void) {
+        let urlString = "https://info-6125-5c725-default-rtdb.firebaseio.com/w24/project.json?auth=\(authToken)"
+        guard let url = URL(string: urlString) else {
+            let error = FetchError.invalidURL
+            completion(error)
+            return
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        
+        do {
+            let encoder = JSONEncoder()
+            request.httpBody = try encoder.encode(task)
+            
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                if let error = error {
+                    print("Error adding task: \(error)")
+                    completion(error)
+                    return
+                }
+                
+                guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
+                    print("Invalid response")
+                    let error = FetchError.invalidServerResponse
+                    completion(error)
+                    return
+                }
+                
+                completion(nil) 
+            }
+            task.resume()
+        } catch {
+            print("Error encoding task: \(error)")
+            completion(error)
+        }
+    }
+    
     static func parseChoresData(data: Data) -> [Chore]? {
         let decoder = JSONDecoder()
         do {
