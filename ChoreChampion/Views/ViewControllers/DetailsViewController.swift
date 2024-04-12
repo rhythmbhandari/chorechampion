@@ -36,36 +36,109 @@ class DetailsViewController: UIViewController {
     
     @IBOutlet weak var deleteBtn: UIBarButtonItem!
     
+    @IBOutlet weak var navBar: UINavigationBar!
+    
     var selectedChoreType: ChoreType?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        typeOfChorePicker.delegate = self
-        typeOfChorePicker.dataSource = self
-        if let selectedChore = selectedChore {
+        setupUI()
+        setupInitialData()
+    }
+    
+    private func setupInitialData() {
+            guard let selectedChore = selectedChore else {
+                configureDatePicker(for: nil, date: nil)
+                deleteBtn.isEnabled = false
+                selectDefaultRow()
+                return
+            }
+            
             titleTxtField.text = selectedChore.title
             assigneeTxtField.text = selectedChore.assignee
             choreStatusSegControl.selectedSegmentIndex = selectedChore.status.rawValue + 1
             selectedChoreType = selectedChore.type
             configureDatePicker(for: selectedChore.status, date: selectedChore.completionDate)
-            if let selectedChoreType = selectedChoreType, let selectedIndex = ChoreType.allCases.firstIndex(of: selectedChoreType) {
-                typeOfChorePicker.selectRow(selectedIndex, inComponent: 0, animated: false)
-                }
-            detailsTitleBar.title = "Update Chore"
-            addChoreBtn.setTitle("Update", for: .normal)
-            checkAddButtonStatus();
-            
-            deleteBtn.isEnabled = true
-        }else{
-            configureDatePicker(for: nil, date: nil)
-            deleteBtn.isEnabled = false
-        }
+            updatePickerSelection(with: selectedChore.type)
+            updateViewTitles()
+            checkAddButtonStatus()
         
-    }
+            deleteBtn.isEnabled = true
+        }
+    
+    private func updatePickerSelection(with type: ChoreType) {
+            if let selectedIndex = ChoreType.allCases.firstIndex(of: type) {
+                typeOfChorePicker.selectRow(selectedIndex, inComponent: 0, animated: false)
+            }
+        }
+
+        private func updateViewTitles() {
+            detailsTitleBar.title = selectedChore == nil ? "Add Chore" : "Update Chore"
+            addChoreBtn.setTitle(selectedChore == nil ? "Add" : "Update", for: .normal)
+        }
+
+        private func setupUI() {
+            configureNavBar()
+            configureTextFields()
+            configureSegmentedControl()
+            configurePickerView()
+        }
+    
+        private func configurePickerView() {
+            typeOfChorePicker.delegate = self
+            typeOfChorePicker.dataSource = self
+            typeOfChorePicker.reloadAllComponents()
+        }
+    
+        private func selectDefaultRow() {
+            let defaultRowIndex = ChoreType.allCases.count / 2
+            typeOfChorePicker.selectRow(defaultRowIndex, inComponent: 0, animated: false)
+        
+            selectedChoreType = ChoreType.allCases[defaultRowIndex]
+        }
+
+        private func configureNavBar() {
+            navBar.barTintColor = UIColor.primaryColor
+            navBar.isTranslucent = false
+            navBar.titleTextAttributes = [
+                .foregroundColor: UIColor.white,
+                .font: UIFont.systemFont(ofSize: 18, weight: .bold)
+            ]
+        }
+
+        private func configureTextFields() {
+            let textFields = [titleTxtField, assigneeTxtField]
+            let cornerRadius: CGFloat = 16
+            let borderWidth: CGFloat = 1
+            let padding: CGFloat = 10
+
+            for textField in textFields {
+                textField?.configureTextField(
+                    cornerRadius: cornerRadius,
+                    borderWidth: borderWidth,
+                    textColor: UIColor.darkGreyLabelColor,
+                    borderColor: UIColor.customCreamColor,
+                    leftPadding: padding,
+                    rightPadding: padding
+                )
+            }
+        }
+
+        private func configureSegmentedControl() {
+            choreStatusSegControl.layer.cornerRadius = 16.0
+            choreStatusSegControl.layer.masksToBounds = true
+            choreStatusSegControl.setTitleTextAttributes(
+                [NSAttributedString.Key.foregroundColor: UIColor.white],
+                for: .selected
+            )
+            choreStatusSegControl.setTitleTextAttributes(
+                [NSAttributedString.Key.foregroundColor: UIColor.darkGreyLabelColor],
+                for: .normal
+            )
+        }
     
     @IBAction func onStatusOfChoreChanged(_ sender: UISegmentedControl) {
-        
+
         guard let type = ChoreStatus(rawValue: sender.selectedSegmentIndex - 1) else{
             dateLabel.text = "Date"
             configureDatePicker(for: nil, date: nil)
@@ -136,7 +209,7 @@ class DetailsViewController: UIViewController {
         sender.isEnabled = false
         
         guard let selectedStatusOfChore = ChoreStatus(rawValue: choreStatusSegControl.selectedSegmentIndex - 1 ) else{
-            self.showAlert(title: "Status of Chore", message: "Please select a status other than Not Stated.")
+            self.showAlert(title: "Status of Task", message: "Please select a status other than Not Stated.")
             sender.isEnabled = true
             return
         }
@@ -155,7 +228,7 @@ class DetailsViewController: UIViewController {
         }
         
         guard selectedChoreType != nil else{
-            self.showAlert(title: "Type of Chore", message: "Please choose the type of chore")
+            self.showAlert(title: "Type of Task", message: "Please choose the type of task")
             sender.isEnabled = true
             return
         }
@@ -171,7 +244,7 @@ class DetailsViewController: UIViewController {
                     let newChore = Chore(id: UUID().uuidString, title: enteredTitle, status: selectedStatusOfChore, type: choreType, assignee: self.assigneeTxtField.text?.trimmingCharacters(in: .whitespacesAndNewlines), completionDate: self.choreDatePicker.date)
                     self.choresManager?.addChore(newChore)
                 }
-               
+                
                 self.dismiss(animated: true) {
                     self.delegate?.modifyChores()
                 }
@@ -205,52 +278,52 @@ class DetailsViewController: UIViewController {
     func checkAddButtonStatus() {
         addChoreBtn.isEnabled = !titleTxtField.text!.isEmpty
     }
-
+    
 }
 
 
 
 /*
-Code to add Chore to API
+ Code to add Chore to API
  
  if let _ = self.selectedChore, let index = self.selectedChoreIndex {
-                    self.choresManager?.updateChore(at: index, chore: newChore)
-                }else{
-                 addChore(newChore)
-                }
+ self.choresManager?.updateChore(at: index, chore: newChore)
+ }else{
+ addChore(newChore)
+ }
  
  func addChore(_ chore: Chore) {
-     authManager?.getToken { [weak self] result in
-         guard let self = self else { return }
-         switch result {
-         case .success(let token):
-             
-//                print("New Token is \(token)")
-             NetworkManager.addTask(authToken: token, task: convertChoreToAPITask(chore)) { error in
-                 DispatchQueue.main.async {
-                     if let error = error {
-                         self.showAlert(title: "Error", message: "Failed to add chore: \(error.localizedDescription)")
-                     } else {
-                         self.choresManager?.addChore(chore)
-                         self.dismiss(animated: true) {
-                             self.delegate?.modifyChores()
-                         }
-                     }
-                 }
-             }
-             
-         case .failure(let error):
-             print("Error fetching user token: \(error)")
-         }
-     }
-
-     
+ authManager?.getToken { [weak self] result in
+ guard let self = self else { return }
+ switch result {
+ case .success(let token):
+ 
+ //                print("New Token is \(token)")
+ NetworkManager.addTask(authToken: token, task: convertChoreToAPITask(chore)) { error in
+ DispatchQueue.main.async {
+ if let error = error {
+ self.showAlert(title: "Error", message: "Failed to add chore: \(error.localizedDescription)")
+ } else {
+ self.choresManager?.addChore(chore)
+ self.dismiss(animated: true) {
+ self.delegate?.modifyChores()
+ }
+ }
+ }
+ }
+ 
+ case .failure(let error):
+ print("Error fetching user token: \(error)")
+ }
+ }
+ 
+ 
  }
  
  func convertChoreToAPITask(_ chore: Chore) -> ResponseChore {
-     let dateFormatter = DateFormatter()
-     dateFormatter.dateFormat = "yyyy-MM-dd"
-
-     return ResponseChore(assignee: chore.assignee, dateCompleted: dateFormatter.string(from: chore.completionDate ?? Date()), name: chore.title, status: chore.status.rawValue, taskType: chore.type.rawValue + 1)
+ let dateFormatter = DateFormatter()
+ dateFormatter.dateFormat = "yyyy-MM-dd"
+ 
+ return ResponseChore(assignee: chore.assignee, dateCompleted: dateFormatter.string(from: chore.completionDate ?? Date()), name: chore.title, status: chore.status.rawValue, taskType: chore.type.rawValue + 1)
  }
  */
