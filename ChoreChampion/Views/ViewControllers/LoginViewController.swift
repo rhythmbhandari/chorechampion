@@ -19,11 +19,21 @@ class LoginViewController: UIViewController {
 
     @IBOutlet weak var loginBtn: UIButton!
     
+    private let customCreamColor = UIColor(red: 245/255.0, green: 240/255.0, blue: 232/255.0, alpha: 1)
+    private let darkGreyLabelColor = UIColor(red: 112/255.0, green: 112/255.0, blue: 112/255.0, alpha: 1)
+    private let primaryColor = UIColor(red: 253/255.0, green: 165/255.0, blue: 55/255.0, alpha: 1)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let authService = FirebaseAuthenticationService()
         authManager = AuthManager(authService: authService)
+        configureUI()
+    }
+    
+    private func configureUI() {
+        emailTxtField.configureTextField(cornerRadius: 16, borderWidth: 1, textColor: darkGreyLabelColor, borderColor: customCreamColor, leftPadding: 10, rightPadding: 10)
+        passTxtField.configureTextField(cornerRadius: 16, borderWidth: 1, textColor: darkGreyLabelColor,borderColor: customCreamColor, leftPadding: 10, rightPadding: 10)
+        loginBtn.layer.cornerRadius = 16
     }
     
     @IBAction func onEmailChanged(_ sender: UITextField) {
@@ -99,7 +109,7 @@ class LoginViewController: UIViewController {
     
     func showSpinner(for button: UIButton) {
         let spinner = UIActivityIndicatorView(style: .medium)
-        spinner.color = .systemTeal
+        spinner.color = primaryColor
         spinner.startAnimating()
         button.addSubview(spinner)
         spinner.center = CGPoint(x: button.bounds.width / 2, y: button.bounds.height / 2)
@@ -128,4 +138,24 @@ class LoginViewController: UIViewController {
     
 }
 
+extension UITextField {
 
+    func configureTextField(cornerRadius: CGFloat, borderWidth: CGFloat, textColor: UIColor, borderColor: UIColor, leftPadding: CGFloat, rightPadding: CGFloat) {
+        self.layer.cornerRadius = cornerRadius
+        self.clipsToBounds = true
+        self.layer.borderWidth = borderWidth
+        self.layer.borderColor = borderColor.cgColor
+        self.textColor = textColor
+        setPadding(left: leftPadding, right: rightPadding)
+    }
+
+    func setPadding(left: CGFloat, right: CGFloat) {
+        let leftPaddingView = UIView(frame: CGRect(x: 0, y: 0, width: left, height: self.frame.height))
+        self.leftView = leftPaddingView
+        self.leftViewMode = .always
+
+        let rightPaddingView = UIView(frame: CGRect(x: 0, y: 0, width: right, height: self.frame.height))
+        self.rightView = rightPaddingView
+        self.rightViewMode = .always
+    }
+}
