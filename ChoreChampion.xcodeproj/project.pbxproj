@@ -17,6 +17,12 @@
 		A41178352BBA12280046170C /* InMemoryChoresManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41178342BBA12280046170C /* InMemoryChoresManager.swift */; };
 		A41178372BBA150F0046170C /* AddChoreDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41178362BBA150F0046170C /* AddChoreDelegate.swift */; };
 		A41178392BBA1ADD0046170C /* UserDefaultsChoresManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41178382BBA1ADD0046170C /* UserDefaultsChoresManager.swift */; };
+		A41895482BC92F8D00F22D60 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41895472BC92F8D00F22D60 /* UITextFieldExtension.swift */; };
+		A418954A2BC92FAC00F22D60 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41895492BC92FAC00F22D60 /* UIColorExtension.swift */; };
+		A418954D2BC9314700F22D60 /* MainUIConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A418954C2BC9314700F22D60 /* MainUIConfigurator.swift */; };
+		A418954F2BC932CD00F22D60 /* DetailsUIConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A418954E2BC932CD00F22D60 /* DetailsUIConfigurator.swift */; };
+		A41895512BC9346C00F22D60 /* LoginUIConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41895502BC9346C00F22D60 /* LoginUIConfigurator.swift */; };
+		A41895532BC9363200F22D60 /* UITableViewCellExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41895522BC9363200F22D60 /* UITableViewCellExtension.swift */; };
 		A42E279C2BBB529100281868 /* DetailsControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42E279B2BBB529100281868 /* DetailsControllerExtension.swift */; };
 		A455D8CB2BB553B100903E11 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = A455D8CA2BB553B100903E11 /* FirebaseAnalytics */; };
 		A455D8CD2BB553B100903E11 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = A455D8CC2BB553B100903E11 /* FirebaseAnalyticsOnDeviceConversion */; };
@@ -80,6 +86,12 @@
 		A41178342BBA12280046170C /* InMemoryChoresManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryChoresManager.swift; sourceTree = "<group>"; };
 		A41178362BBA150F0046170C /* AddChoreDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddChoreDelegate.swift; sourceTree = "<group>"; };
 		A41178382BBA1ADD0046170C /* UserDefaultsChoresManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsChoresManager.swift; sourceTree = "<group>"; };
+		A41895472BC92F8D00F22D60 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
+		A41895492BC92FAC00F22D60 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		A418954C2BC9314700F22D60 /* MainUIConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainUIConfigurator.swift; sourceTree = "<group>"; };
+		A418954E2BC932CD00F22D60 /* DetailsUIConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsUIConfigurator.swift; sourceTree = "<group>"; };
+		A41895502BC9346C00F22D60 /* LoginUIConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUIConfigurator.swift; sourceTree = "<group>"; };
+		A41895522BC9363200F22D60 /* UITableViewCellExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCellExtension.swift; sourceTree = "<group>"; };
 		A42E279B2BBB529100281868 /* DetailsControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsControllerExtension.swift; sourceTree = "<group>"; };
 		A455D9172BB55DC900903E11 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		A455D91F2BB55E7F00903E11 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -170,13 +182,27 @@
 				A41178242BB9137D0046170C /* UIViewContollerExtension.swift */,
 				A41178262BB913F60046170C /* MainControllerExtension.swift */,
 				A42E279B2BBB529100281868 /* DetailsControllerExtension.swift */,
+				A41895472BC92F8D00F22D60 /* UITextFieldExtension.swift */,
+				A41895492BC92FAC00F22D60 /* UIColorExtension.swift */,
+				A41895522BC9363200F22D60 /* UITableViewCellExtension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A418954B2BC9313200F22D60 /* Configurator */ = {
+			isa = PBXGroup;
+			children = (
+				A418954C2BC9314700F22D60 /* MainUIConfigurator.swift */,
+				A418954E2BC932CD00F22D60 /* DetailsUIConfigurator.swift */,
+				A41895502BC9346C00F22D60 /* LoginUIConfigurator.swift */,
+			);
+			path = Configurator;
 			sourceTree = "<group>";
 		};
 		A455D9212BB561D200903E11 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A418954B2BC9313200F22D60 /* Configurator */,
 				A455D9232BB561E600903E11 /* ViewControllers */,
 				A455D9222BB561DC00903E11 /* Storyboards */,
 			);
@@ -375,8 +401,11 @@
 				A41178392BBA1ADD0046170C /* UserDefaultsChoresManager.swift in Sources */,
 				A41178252BB9137D0046170C /* UIViewContollerExtension.swift in Sources */,
 				A41178272BB913F60046170C /* MainControllerExtension.swift in Sources */,
+				A41895482BC92F8D00F22D60 /* UITextFieldExtension.swift in Sources */,
+				A41895512BC9346C00F22D60 /* LoginUIConfigurator.swift in Sources */,
 				A41178332BBA11D70046170C /* ChoresManaging.swift in Sources */,
 				A41178152BB90A020046170C /* FirebaseAuthenticationService.swift in Sources */,
+				A418954A2BC92FAC00F22D60 /* UIColorExtension.swift in Sources */,
 				A41178312BBA119C0046170C /* AuthDelegate.swift in Sources */,
 				A41178352BBA12280046170C /* InMemoryChoresManager.swift in Sources */,
 				A4672CE22BB62A640040B503 /* CredentialsModel.swift in Sources */,
@@ -385,8 +414,11 @@
 				A495C8C72BB3A1800053875E /* AppDelegate.swift in Sources */,
 				A4A53F012BC4DF0300A852F8 /* DetailsViewController.swift in Sources */,
 				A42E279C2BBB529100281868 /* DetailsControllerExtension.swift in Sources */,
+				A418954D2BC9314700F22D60 /* MainUIConfigurator.swift in Sources */,
+				A418954F2BC932CD00F22D60 /* DetailsUIConfigurator.swift in Sources */,
 				A495C8C92BB3A1800053875E /* SceneDelegate.swift in Sources */,
 				A455D9202BB55E7F00903E11 /* MainViewController.swift in Sources */,
+				A41895532BC9363200F22D60 /* UITableViewCellExtension.swift in Sources */,
 				A411781A2BB90A390046170C /* AuthManager.swift in Sources */,
 				A411781F2BB90F630046170C /* ChoreModel.swift in Sources */,
 			);

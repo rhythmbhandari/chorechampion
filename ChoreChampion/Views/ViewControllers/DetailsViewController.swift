@@ -39,6 +39,7 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var navBar: UINavigationBar!
     
     var selectedChoreType: ChoreType?
+    private let uiConfigurator = DetailsUIConfigurator()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,9 +79,9 @@ class DetailsViewController: UIViewController {
     }
     
     private func setupUI() {
-        configureNavBar()
-        configureTextFields()
-        configureSegmentedControl()
+        uiConfigurator.configureNavBar(navBar)
+        uiConfigurator.configureTextFields(titleTxtField, assigneeTxtField)
+        uiConfigurator.configureSegmentedControl(choreStatusSegControl)
         configurePickerView()
     }
     
@@ -96,45 +97,7 @@ class DetailsViewController: UIViewController {
         selectedChoreType = ChoreType.allCases[defaultRowIndex]
     }
     
-    private func configureNavBar() {
-        navBar.barTintColor = UIColor.primaryColor
-        navBar.isTranslucent = false
-        navBar.titleTextAttributes = [
-            .foregroundColor: UIColor.white,
-            .font: UIFont.systemFont(ofSize: 18, weight: .bold)
-        ]
-    }
     
-    private func configureTextFields() {
-        let textFields = [titleTxtField, assigneeTxtField]
-        let cornerRadius: CGFloat = 16
-        let borderWidth: CGFloat = 1
-        let padding: CGFloat = 10
-        
-        for textField in textFields {
-            textField?.configureTextField(
-                cornerRadius: cornerRadius,
-                borderWidth: borderWidth,
-                textColor: UIColor.darkGreyLabelColor,
-                borderColor: UIColor.customCreamColor,
-                leftPadding: padding,
-                rightPadding: padding
-            )
-        }
-    }
-    
-    private func configureSegmentedControl() {
-        choreStatusSegControl.layer.cornerRadius = 16.0
-        choreStatusSegControl.layer.masksToBounds = true
-        choreStatusSegControl.setTitleTextAttributes(
-            [NSAttributedString.Key.foregroundColor: UIColor.white],
-            for: .selected
-        )
-        choreStatusSegControl.setTitleTextAttributes(
-            [NSAttributedString.Key.foregroundColor: UIColor.darkGreyLabelColor],
-            for: .normal
-        )
-    }
     
     @IBAction func onStatusOfChoreChanged(_ sender: UISegmentedControl) {
         
@@ -204,53 +167,61 @@ class DetailsViewController: UIViewController {
     }
     
     
+    private func validateAssignee( selectedStatusOfChore: ChoreStatus) -> Bool {
+        if selectedStatusOfChore == .completed {
+            guard let assigneeTxt = assigneeTxtField.text?.trimmingCharacters(in: .whitespacesAndNewlines), !assigneeTxt.isEmpty else {
+                showAlert(title: "Assignee", message: "Please enter who completed this task")
+                return false
+            }
+        }
+        return true
+    }
+    
+    private func validateChoreType() -> Bool {
+        guard selectedChoreType != nil else {
+            showAlert(title: "Type of Task", message: "Please choose the type of task")
+            return false
+        }
+        return true
+    }
+    
     @IBAction func onAddChoreBtnPressed(_ sender: UIButton) {
         sender.isEnabled = false
         
-        guard let selectedStatusOfChore = ChoreStatus(rawValue: choreStatusSegControl.selectedSegmentIndex - 1 ) else{
-            self.showAlert(title: "Status of Task", message: "Please select a status other than Not Stated.")
+        guard let selectedStatusOfChore = ChoreStatus(rawValue: choreStatusSegControl.selectedSegmentIndex - 1) else {
+            showAlert(title: "Status of Task", message: "Please select a status other than Not Stated.")
             sender.isEnabled = true
             return
         }
         
-        if(selectedStatusOfChore == .completed){
-            guard let assigneeTxt = (assigneeTxtField.text?.trimmingCharacters(in: .whitespacesAndNewlines)) else{
-                self.showAlert(title: "Assignee", message: "Please enter who completed this task")
-                sender.isEnabled = true
-                return
-            }
-            if(assigneeTxt.isEmpty){
-                self.showAlert(title: "Assignee", message: "Please enter who completed this task")
-                sender.isEnabled = true
-                return
-            }
-        }
-        
-        guard selectedChoreType != nil else{
-            self.showAlert(title: "Type of Task", message: "Please choose the type of task")
+        if !validateAssignee(selectedStatusOfChore: selectedStatusOfChore) || !validateChoreType() {
             sender.isEnabled = true
             return
         }
         
-        if let enteredTitle = titleTxtField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
-           let choreType = selectedChoreType{
-            DispatchQueue.main.async {
-                sender.isEnabled = true
-                if let selectedChore = self.selectedChore, let index = self.selectedChoreIndex {
-                    let newChore = Chore(id: selectedChore.id, title: enteredTitle, status: selectedStatusOfChore, type: choreType, assignee: self.assigneeTxtField.text?.trimmingCharacters(in: .whitespacesAndNewlines), completionDate: self.choreDatePicker.date)
-                    self.choresManager?.updateChore(at: index, chore: newChore)
-                }else{
-                    let newChore = Chore(id: UUID().uuidString, title: enteredTitle, status: selectedStatusOfChore, type: choreType, assignee: self.assigneeTxtField.text?.trimmingCharacters(in: .whitespacesAndNewlines), completionDate: self.choreDatePicker.date)
-                    self.choresManager?.addChore(newChore)
-                }
-                
-                self.dismiss(animated: true) {
-                    self.delegate?.modifyChores()
-                }
+        createOrUpdateChore(status: selectedStatusOfChore)
+        sender.isEnabled = true
+    }
+    
+    private func createOrUpdateChore( status: ChoreStatus) {
+        guard let enteredTitle = titleTxtField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
+              let choreType = selectedChoreType else {
+            return
+        }
+        
+        DispatchQueue.main.async {
+            if let selectedChore = self.selectedChore, let index = self.selectedChoreIndex {
+                let newChore = Chore(id: selectedChore.id, title: enteredTitle, status: status, type: choreType, assignee: self.assigneeTxtField.text?.trimmingCharacters(in: .whitespacesAndNewlines), completionDate: self.choreDatePicker.date)
+                self.choresManager?.updateChore(at: index, chore: newChore)
+            } else {
+                let newChore = Chore(id: UUID().uuidString, title: enteredTitle, status: status, type: choreType, assignee: self.assigneeTxtField.text?.trimmingCharacters(in: .whitespacesAndNewlines), completionDate: self.choreDatePicker.date)
+                self.choresManager?.addChore(newChore)
+            }
+            self.dismiss(animated: true) {
+                self.delegate?.modifyChores()
             }
         }
     }
-    
     
     
     @IBAction func onBackButtonPressed(_ sender: Any) {

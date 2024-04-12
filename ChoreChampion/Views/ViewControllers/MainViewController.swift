@@ -12,50 +12,33 @@ class MainViewController:UIViewController, AddChoreDelegate {
     var choresManager: ChoresManaging?
     var selectedChore: Chore?
     var selectedChoreIndex: Int?
+    
     @IBOutlet weak var navBar: UINavigationBar!
     @IBOutlet weak var choreTable: UITableView!
     @IBOutlet weak var navTitle: UIBarButtonItem!
     @IBOutlet weak var navLogout: UIBarButtonItem!
     
-    let dateFormatter: DateFormatter = {
-            let formatter = DateFormatter()
-            formatter.dateStyle = .medium
-            formatter.timeStyle = .none
-            formatter.locale = Locale(identifier: "en_US")
-            return formatter
-    }()
+    private let uiConfigurator = MainUIConfigurator()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupAuthentication()
+        uiConfigurator.configureNavBar(navBar, navTitle, navLogout)
+        initializeAuthenticationAndFetchChores()
         setupTableView()
-        setupUI()
-    }
-    
-    private func setupUI() {
-        navBar.barTintColor = UIColor.primaryColor
-        navBar.isTranslucent = false
-        let titleAttribute: [NSAttributedString.Key: Any] = [
-                    .foregroundColor: UIColor.white,
-                    .font: UIFont.systemFont(ofSize: 20, weight: .bold)
-                ]
-        navTitle.setTitleTextAttributes(titleAttribute, for: .normal)
-        
-        let logoutAttribute: [NSAttributedString.Key: Any] = [
-                    .foregroundColor: UIColor.white,
-                    .font: UIFont.systemFont(ofSize: 16, weight: .medium)
-                ]
-        navLogout.setTitleTextAttributes(logoutAttribute, for: .normal)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
             return .lightContent
-        }
+    }
     
-    private func setupAuthentication() {
+    private func initializeAuthenticationAndFetchChores() {
         let authService = FirebaseAuthenticationService()
         authManager = AuthManager(authService: authService)
         choresManager = UserDefaultsChoresManager()
+        authenticate()
+    }
+    
+    private func authenticate(){
         authManager?.getToken { [weak self] result in
             guard let self = self else { return }
             switch result {
@@ -118,12 +101,12 @@ class MainViewController:UIViewController, AddChoreDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "detailsSegue" {
-            let destination = segue.destination as! DetailsViewController
-            destination.selectedChore = selectedChore
-            destination.selectedChoreIndex = selectedChoreIndex
-            destination.delegate = self
-            destination.choresManager = self.choresManager
-            destination.authManager = self.authManager
+            let detailScreen = segue.destination as! DetailsViewController
+            detailScreen.selectedChore = selectedChore
+            detailScreen.selectedChoreIndex = selectedChoreIndex
+            detailScreen.delegate = self
+            detailScreen.choresManager = self.choresManager
+            detailScreen.authManager = self.authManager
         }
     }
 }

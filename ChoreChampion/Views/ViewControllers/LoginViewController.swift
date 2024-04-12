@@ -16,20 +16,16 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passErrLabel: UILabel!
     
     var authManager: AuthManager!
-
+    
     @IBOutlet weak var loginBtn: UIButton!
-        
+    
+    private let uiConfigurator = LoginUIConfigurator()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let authService = FirebaseAuthenticationService()
         authManager = AuthManager(authService: authService)
-        configureUI()
-    }
-    
-    private func configureUI() {
-        emailTxtField.configureTextField(cornerRadius: 16, borderWidth: 1, textColor: UIColor.darkGreyLabelColor, borderColor: UIColor.customCreamColor, leftPadding: 10, rightPadding: 10)
-        passTxtField.configureTextField(cornerRadius: 16, borderWidth: 1, textColor: UIColor.darkGreyLabelColor,borderColor: UIColor.customCreamColor, leftPadding: 10, rightPadding: 10)
-        loginBtn.layer.cornerRadius = 16
+        uiConfigurator.configureUI(emailTxtField, passTxtField, loginBtn)
     }
     
     @IBAction func onEmailChanged(_ sender: UITextField) {
@@ -80,7 +76,7 @@ class LoginViewController: UIViewController {
     
     @IBAction func onLoginBtnPressed(_ sender: UIButton) {
         sender.isEnabled = false
-        showSpinner(for: sender)
+        self.uiConfigurator.showSpinner(for: sender)
         
         if let enteredEmail = emailTxtField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
            let enteredPassword = passTxtField.text?.trimmingCharacters(in: .whitespacesAndNewlines) {
@@ -90,7 +86,7 @@ class LoginViewController: UIViewController {
                 
                 DispatchQueue.main.async {
                     sender.isEnabled = true
-                    self?.hideSpinner(for: sender)
+                    self?.uiConfigurator.hideSpinner(for: sender)
                     
                     switch result {
                     case .success():
@@ -103,24 +99,6 @@ class LoginViewController: UIViewController {
         }
     }
     
-    func showSpinner(for button: UIButton) {
-        let spinner = UIActivityIndicatorView(style: .medium)
-        spinner.color = UIColor.primaryColor
-        spinner.startAnimating()
-        button.addSubview(spinner)
-        spinner.center = CGPoint(x: button.bounds.width / 2, y: button.bounds.height / 2)
-        button.setTitle("", for: .normal)
-    }
-    
-    func hideSpinner(for button: UIButton) {
-        button.subviews.compactMap { $0 as? UIActivityIndicatorView }.forEach {
-            $0.stopAnimating()
-            $0.removeFromSuperview()
-        }
-        button.setTitle("Login", for: .normal)
-    }
-    
-    
     func navigateToMainViewController() {
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let mainViewController = mainStoryboard.instantiateViewController(withIdentifier: "MainViewController")
@@ -132,33 +110,4 @@ class LoginViewController: UIViewController {
         sceneDelegate.window?.rootViewController = mainViewController
     }
     
-}
-
-extension UITextField {
-
-    func configureTextField(cornerRadius: CGFloat, borderWidth: CGFloat, textColor: UIColor, borderColor: UIColor, leftPadding: CGFloat, rightPadding: CGFloat) {
-        self.layer.cornerRadius = cornerRadius
-        self.clipsToBounds = true
-        self.layer.borderWidth = borderWidth
-        self.layer.borderColor = borderColor.cgColor
-        self.textColor = textColor
-        setPadding(left: leftPadding, right: rightPadding)
-    }
-
-    func setPadding(left: CGFloat, right: CGFloat) {
-        let leftPaddingView = UIView(frame: CGRect(x: 0, y: 0, width: left, height: self.frame.height))
-        self.leftView = leftPaddingView
-        self.leftViewMode = .always
-
-        let rightPaddingView = UIView(frame: CGRect(x: 0, y: 0, width: right, height: self.frame.height))
-        self.rightView = rightPaddingView
-        self.rightViewMode = .always
-    }
-}
-
-extension UIColor {
-    static let customCreamColor = UIColor(red: 245/255.0, green: 240/255.0, blue: 232/255.0, alpha: 1)
-    static let darkGreyLabelColor = UIColor(red: 112/255.0, green: 112/255.0, blue: 112/255.0, alpha: 1)
-    static let primaryColor = UIColor(red: 253/255.0, green: 165/255.0, blue: 55/255.0, alpha: 1)
-    static let secondaryColor = UIColor(red: 20/255.0, green: 113/255.0, blue: 226/255.0, alpha: 1)
 }

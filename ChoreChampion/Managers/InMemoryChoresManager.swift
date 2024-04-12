@@ -8,14 +8,6 @@
 import Foundation
 
 class InMemoryChoresManager: ChoresManaging {
-    func addChores(_ chores: [Chore]) {
-        
-    }
-    
-    func updateChore(at index: Int, chore: Chore) {
-        
-    }
-    
     private var chores: [Chore] = []
 
     func fetchChores() -> [Chore] {
@@ -47,4 +39,13 @@ class InMemoryChoresManager: ChoresManaging {
         
         chores.append(Chore(id: UUID().uuidString, title: "Third Chore", status: ChoreStatus.completed, type: ChoreType.deliverables, assignee: "Another Doe", completionDate: dateFormatter.date(from: "04-02-2024")))
     }
+    
+    func addChores(_ chores: [Chore]) {
+        
+    }
+    
+    func updateChore(at index: Int, chore: Chore) {
+        
+    }
+    
 }
