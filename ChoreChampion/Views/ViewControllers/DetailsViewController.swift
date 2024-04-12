@@ -47,98 +47,97 @@ class DetailsViewController: UIViewController {
     }
     
     private func setupInitialData() {
-            guard let selectedChore = selectedChore else {
-                configureDatePicker(for: nil, date: nil)
-                deleteBtn.isEnabled = false
-                selectDefaultRow()
-                return
-            }
-            
-            titleTxtField.text = selectedChore.title
-            assigneeTxtField.text = selectedChore.assignee
-            choreStatusSegControl.selectedSegmentIndex = selectedChore.status.rawValue + 1
-            selectedChoreType = selectedChore.type
-            configureDatePicker(for: selectedChore.status, date: selectedChore.completionDate)
-            updatePickerSelection(with: selectedChore.type)
-            updateViewTitles()
-            checkAddButtonStatus()
-        
-            deleteBtn.isEnabled = true
+        guard let selectedChore = selectedChore else {
+            configureDatePicker(for: nil, date: nil)
+            deleteBtn.isEnabled = false
+            selectDefaultRow()
+            return
         }
+        
+        titleTxtField.text = selectedChore.title
+        assigneeTxtField.text = selectedChore.assignee
+        choreStatusSegControl.selectedSegmentIndex = selectedChore.status.rawValue + 1
+        selectedChoreType = selectedChore.type
+        configureDatePicker(for: selectedChore.status, date: selectedChore.completionDate)
+        updatePickerSelection(with: selectedChore.type)
+        updateViewTitles()
+        checkAddButtonStatus()
+        
+        deleteBtn.isEnabled = true
+    }
     
     private func updatePickerSelection(with type: ChoreType) {
-            if let selectedIndex = ChoreType.allCases.firstIndex(of: type) {
-                typeOfChorePicker.selectRow(selectedIndex, inComponent: 0, animated: false)
-            }
+        if let selectedIndex = ChoreType.allCases.firstIndex(of: type) {
+            typeOfChorePicker.selectRow(selectedIndex, inComponent: 0, animated: false)
         }
-
-        private func updateViewTitles() {
-            detailsTitleBar.title = selectedChore == nil ? "Add Chore" : "Update Chore"
-            addChoreBtn.setTitle(selectedChore == nil ? "Add" : "Update", for: .normal)
-        }
-
-        private func setupUI() {
-            configureNavBar()
-            configureTextFields()
-            configureSegmentedControl()
-            configurePickerView()
-        }
+    }
     
-        private func configurePickerView() {
-            typeOfChorePicker.delegate = self
-            typeOfChorePicker.dataSource = self
-            typeOfChorePicker.reloadAllComponents()
-        }
+    private func updateViewTitles() {
+        detailsTitleBar.title = selectedChore == nil ? "Add Task" : "Update Task"
+        addChoreBtn.setTitle(selectedChore == nil ? "Add" : "Update", for: .normal)
+    }
     
-        private func selectDefaultRow() {
-            let defaultRowIndex = ChoreType.allCases.count / 2
-            typeOfChorePicker.selectRow(defaultRowIndex, inComponent: 0, animated: false)
+    private func setupUI() {
+        configureNavBar()
+        configureTextFields()
+        configureSegmentedControl()
+        configurePickerView()
+    }
+    
+    private func configurePickerView() {
+        typeOfChorePicker.delegate = self
+        typeOfChorePicker.dataSource = self
+        typeOfChorePicker.reloadAllComponents()
+    }
+    
+    private func selectDefaultRow() {
+        let defaultRowIndex = ChoreType.allCases.count / 2
+        typeOfChorePicker.selectRow(defaultRowIndex, inComponent: 0, animated: false)
+        selectedChoreType = ChoreType.allCases[defaultRowIndex]
+    }
+    
+    private func configureNavBar() {
+        navBar.barTintColor = UIColor.primaryColor
+        navBar.isTranslucent = false
+        navBar.titleTextAttributes = [
+            .foregroundColor: UIColor.white,
+            .font: UIFont.systemFont(ofSize: 18, weight: .bold)
+        ]
+    }
+    
+    private func configureTextFields() {
+        let textFields = [titleTxtField, assigneeTxtField]
+        let cornerRadius: CGFloat = 16
+        let borderWidth: CGFloat = 1
+        let padding: CGFloat = 10
         
-            selectedChoreType = ChoreType.allCases[defaultRowIndex]
-        }
-
-        private func configureNavBar() {
-            navBar.barTintColor = UIColor.primaryColor
-            navBar.isTranslucent = false
-            navBar.titleTextAttributes = [
-                .foregroundColor: UIColor.white,
-                .font: UIFont.systemFont(ofSize: 18, weight: .bold)
-            ]
-        }
-
-        private func configureTextFields() {
-            let textFields = [titleTxtField, assigneeTxtField]
-            let cornerRadius: CGFloat = 16
-            let borderWidth: CGFloat = 1
-            let padding: CGFloat = 10
-
-            for textField in textFields {
-                textField?.configureTextField(
-                    cornerRadius: cornerRadius,
-                    borderWidth: borderWidth,
-                    textColor: UIColor.darkGreyLabelColor,
-                    borderColor: UIColor.customCreamColor,
-                    leftPadding: padding,
-                    rightPadding: padding
-                )
-            }
-        }
-
-        private func configureSegmentedControl() {
-            choreStatusSegControl.layer.cornerRadius = 16.0
-            choreStatusSegControl.layer.masksToBounds = true
-            choreStatusSegControl.setTitleTextAttributes(
-                [NSAttributedString.Key.foregroundColor: UIColor.white],
-                for: .selected
-            )
-            choreStatusSegControl.setTitleTextAttributes(
-                [NSAttributedString.Key.foregroundColor: UIColor.darkGreyLabelColor],
-                for: .normal
+        for textField in textFields {
+            textField?.configureTextField(
+                cornerRadius: cornerRadius,
+                borderWidth: borderWidth,
+                textColor: UIColor.darkGreyLabelColor,
+                borderColor: UIColor.customCreamColor,
+                leftPadding: padding,
+                rightPadding: padding
             )
         }
+    }
+    
+    private func configureSegmentedControl() {
+        choreStatusSegControl.layer.cornerRadius = 16.0
+        choreStatusSegControl.layer.masksToBounds = true
+        choreStatusSegControl.setTitleTextAttributes(
+            [NSAttributedString.Key.foregroundColor: UIColor.white],
+            for: .selected
+        )
+        choreStatusSegControl.setTitleTextAttributes(
+            [NSAttributedString.Key.foregroundColor: UIColor.darkGreyLabelColor],
+            for: .normal
+        )
+    }
     
     @IBAction func onStatusOfChoreChanged(_ sender: UISegmentedControl) {
-
+        
         guard let type = ChoreStatus(rawValue: sender.selectedSegmentIndex - 1) else{
             dateLabel.text = "Date"
             configureDatePicker(for: nil, date: nil)

@@ -261,7 +261,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nzt-AJ-Bbb">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="782.33333333333337"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="772.33333333333337"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name of Task" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kpc-7Q-MLq">
                                                 <rect key="frame" x="20" y="62" width="353" height="21"/>
@@ -346,14 +346,17 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="31" translatesAutoresizingMaskIntoConstraints="NO" id="Oar-bb-XyZ">
                                                 <rect key="frame" x="20" y="392" width="353" height="50"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TE6-LB-jdN">
-                                                        <rect key="frame" x="0.0" y="0.0" width="38" height="50"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TE6-LB-jdN">
+                                                        <rect key="frame" x="0.0" y="0.0" width="200.33333333333334" height="50"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="WG6-ch-RUh">
-                                                        <rect key="frame" x="69" y="0.0" width="284" height="50"/>
+                                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" datePickerMode="date" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WG6-ch-RUh">
+                                                        <rect key="frame" x="231.33333333333334" y="0.0" width="121.66666666666666" height="50"/>
+                                                        <date key="date" timeIntervalSinceReferenceDate="734602611.44136798">
+                                                            <!--2024-04-12 08:16:51 +0000-->
+                                                        </date>
                                                     </datePicker>
                                                 </subviews>
                                             </stackView>
@@ -387,7 +390,7 @@
                                                 </constraints>
                                             </pickerView>
                                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Crm-ao-O2T">
-                                                <rect key="frame" x="20" y="731" width="353" height="45"/>
+                                                <rect key="frame" x="20" y="721" width="353" height="45"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="9E8-dH-t9Y"/>
                                                 </constraints>
@@ -404,7 +407,7 @@
                                             <constraint firstItem="bvm-n5-Nmm" firstAttribute="leading" secondItem="Nzt-AJ-Bbb" secondAttribute="leadingMargin" constant="12" id="3jT-Oc-wA3"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="bB2-d1-HXd" secondAttribute="trailing" constant="12" id="44L-rf-2F2"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="Crm-ao-O2T" secondAttribute="bottom" constant="-1.6666666666667425" id="B7A-pg-sev"/>
-                                            <constraint firstItem="Crm-ao-O2T" firstAttribute="top" secondItem="LEH-Jl-23W" secondAttribute="bottom" constant="20" id="EOc-cD-zWq"/>
+                                            <constraint firstItem="Crm-ao-O2T" firstAttribute="top" secondItem="LEH-Jl-23W" secondAttribute="bottom" constant="10" id="EOc-cD-zWq"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="YAP-vU-A75" secondAttribute="trailing" constant="12" id="F1B-bf-wbp"/>
                                             <constraint firstItem="WRM-bj-qAk" firstAttribute="leading" secondItem="Nzt-AJ-Bbb" secondAttribute="leadingMargin" constant="12" id="FQp-cz-QdL"/>
                                             <constraint firstItem="5qC-Nm-HHl" firstAttribute="top" secondItem="Nzt-AJ-Bbb" secondAttribute="top" constant="-2" id="FSr-jj-HNS"/>

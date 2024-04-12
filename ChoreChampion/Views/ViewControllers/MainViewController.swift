@@ -13,9 +13,7 @@ class MainViewController:UIViewController, AddChoreDelegate {
     var selectedChore: Chore?
     var selectedChoreIndex: Int?
     @IBOutlet weak var navBar: UINavigationBar!
-    
     @IBOutlet weak var choreTable: UITableView!
-    
     @IBOutlet weak var navTitle: UIBarButtonItem!
     @IBOutlet weak var navLogout: UIBarButtonItem!
     
