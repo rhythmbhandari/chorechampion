@@ -18,11 +18,7 @@ class LoginViewController: UIViewController {
     var authManager: AuthManager!
 
     @IBOutlet weak var loginBtn: UIButton!
-    
-    private let customCreamColor = UIColor(red: 245/255.0, green: 240/255.0, blue: 232/255.0, alpha: 1)
-    private let darkGreyLabelColor = UIColor(red: 112/255.0, green: 112/255.0, blue: 112/255.0, alpha: 1)
-    private let primaryColor = UIColor(red: 253/255.0, green: 165/255.0, blue: 55/255.0, alpha: 1)
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         let authService = FirebaseAuthenticationService()
@@ -31,8 +27,8 @@ class LoginViewController: UIViewController {
     }
     
     private func configureUI() {
-        emailTxtField.configureTextField(cornerRadius: 16, borderWidth: 1, textColor: darkGreyLabelColor, borderColor: customCreamColor, leftPadding: 10, rightPadding: 10)
-        passTxtField.configureTextField(cornerRadius: 16, borderWidth: 1, textColor: darkGreyLabelColor,borderColor: customCreamColor, leftPadding: 10, rightPadding: 10)
+        emailTxtField.configureTextField(cornerRadius: 16, borderWidth: 1, textColor: UIColor.darkGreyLabelColor, borderColor: UIColor.customCreamColor, leftPadding: 10, rightPadding: 10)
+        passTxtField.configureTextField(cornerRadius: 16, borderWidth: 1, textColor: UIColor.darkGreyLabelColor,borderColor: UIColor.customCreamColor, leftPadding: 10, rightPadding: 10)
         loginBtn.layer.cornerRadius = 16
     }
     
@@ -109,7 +105,7 @@ class LoginViewController: UIViewController {
     
     func showSpinner(for button: UIButton) {
         let spinner = UIActivityIndicatorView(style: .medium)
-        spinner.color = primaryColor
+        spinner.color = UIColor.primaryColor
         spinner.startAnimating()
         button.addSubview(spinner)
         spinner.center = CGPoint(x: button.bounds.width / 2, y: button.bounds.height / 2)
@@ -158,4 +154,11 @@ extension UITextField {
         self.rightView = rightPaddingView
         self.rightViewMode = .always
     }
+}
+
+extension UIColor {
+    static let customCreamColor = UIColor(red: 245/255.0, green: 240/255.0, blue: 232/255.0, alpha: 1)
+    static let darkGreyLabelColor = UIColor(red: 112/255.0, green: 112/255.0, blue: 112/255.0, alpha: 1)
+    static let primaryColor = UIColor(red: 253/255.0, green: 165/255.0, blue: 55/255.0, alpha: 1)
+    static let secondaryColor = UIColor(red: 20/255.0, green: 113/255.0, blue: 226/255.0, alpha: 1)
 }

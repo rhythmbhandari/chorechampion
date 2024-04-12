@@ -12,14 +12,47 @@ class MainViewController:UIViewController, AddChoreDelegate {
     var choresManager: ChoresManaging?
     var selectedChore: Chore?
     var selectedChoreIndex: Int?
+    @IBOutlet weak var navBar: UINavigationBar!
     
     @IBOutlet weak var choreTable: UITableView!
+    
+    @IBOutlet weak var navTitle: UIBarButtonItem!
+    @IBOutlet weak var navLogout: UIBarButtonItem!
+    
+    let dateFormatter: DateFormatter = {
+            let formatter = DateFormatter()
+            formatter.dateStyle = .medium
+            formatter.timeStyle = .none
+            formatter.locale = Locale(identifier: "en_US")
+            return formatter
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupAuthentication()
         setupTableView()
+        setupUI()
     }
+    
+    private func setupUI() {
+        navBar.barTintColor = UIColor.primaryColor
+        navBar.isTranslucent = false
+        let titleAttribute: [NSAttributedString.Key: Any] = [
+                    .foregroundColor: UIColor.white,
+                    .font: UIFont.systemFont(ofSize: 20, weight: .bold)
+                ]
+        navTitle.setTitleTextAttributes(titleAttribute, for: .normal)
+        
+        let logoutAttribute: [NSAttributedString.Key: Any] = [
+                    .foregroundColor: UIColor.white,
+                    .font: UIFont.systemFont(ofSize: 16, weight: .medium)
+                ]
+        navLogout.setTitleTextAttributes(logoutAttribute, for: .normal)
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+            return .lightContent
+        }
     
     private func setupAuthentication() {
         let authService = FirebaseAuthenticationService()
